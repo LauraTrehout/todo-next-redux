@@ -1,22 +1,16 @@
-
 import { StyledCheckbox } from "../styles/Checkbox.styled";
 import { FlexContainer } from "../styles/Container.styled";
 import { TaskTitle } from "../styles/Title.styled";
 
-const TodoItem = ({ todo, done, setDone, selected, setSelected }) => {
-
-    const handleBoxClick = () => {
-        setSelected(todo)
-    }
-
-  return (
-    <FlexContainer>
+const DoneItem = () => {
+    return ( 
+        <FlexContainer>
       <StyledCheckbox onClick={handleBoxClick}></StyledCheckbox>
       <TaskTitle>
-      {todo.title}
+      {done.title}
       </TaskTitle>
     </FlexContainer>
-  );
-};
-
-export default TodoItem;
+    );
+}
+ 
+export default DoneItem;

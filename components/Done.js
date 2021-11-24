@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import { DoneContainer } from "../styles/Container.styled";
+import { DoneTaskTitle } from "../styles/Title.styled";
+import DoneList from "./DoneList";
 
-import { DoneContainer } from '../styles/Container.styled'
- 
-function Done() {
+function Done({ done, setDone }) {
   return (
     <DoneContainer>
-      <p>Tâches terminées</p>
+      <DoneTaskTitle>Tâches terminées</DoneTaskTitle>
+      <DoneList done={done} setDone={setDone}/>
     </DoneContainer>
   );
 }

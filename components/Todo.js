@@ -4,9 +4,8 @@ import { Input } from "../styles/Input.styled";
 import TodoList from "./TodoList";
 import { useState } from "react";
 
-function Todo() {
-  const [input, setInput] = useState('')
-  const [todos, setTodos] = useState([])
+function Todo({ todos, input, setInput, setTodos, done, setDone, selected, setSelected }) {
+  
 
   const handleInputChange = (e) => {
     setInput(e.target.value)
@@ -22,7 +21,8 @@ function Todo() {
       <AllTasksTitle>Toutes les tâches</AllTasksTitle>
       <Input type="text" placeholder=" + Ajouter une tâche" value={input} onChange={handleInputChange}/>
 <button onClick={handleAddClick}>+</button>
-      <TodoList todos={todos}  />
+      <TodoList todos={todos} done={done} setDOne={setDone} selected={selected}
+              setSelected={setSelected}/>
     </TodoContainer>
   );
 }

@@ -19,12 +19,15 @@ display: flex;
 flex-direction: column;
 width: 70%;
 padding: 0.5em;
-
+background-color: #fff;
+position: relative;
 `
 export const TodoContainer = styled.div`
 display: flex;
 flex-direction: column; 
 `
+
+export const DoneListContainer = styled(TodoContainer)``
 
 export const DoneContainer = styled.div`
 display: flex;

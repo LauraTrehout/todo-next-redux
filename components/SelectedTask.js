@@ -1,17 +1,20 @@
-import React from 'react'
+import { AiOutlineCheck } from "react-icons/bi";
+import { SelectedTaskContainer } from "../styles/Container.styled";
+import { CheckedButton } from "../styles/Button.styled";
+import { SelectedTaskTitle } from "../styles/Title.styled";
 
-import { SelectedTaskContainer } from '../styles/Container.styled'
-import { CheckedButton } from '../styles/Button.styled'
+function SelectedTask({ selected, setSelected }) {
+console.log('selected',selected.title);
 
-function SelectedTask() {
-    return (
-        <SelectedTaskContainer>
-        <h2>
-            Titre de la tâche sélectionnée</h2>
-            <CheckedButton>Marqué comme terminé</CheckedButton>
-        
-        </SelectedTaskContainer>
-    )
+  return (
+    <SelectedTaskContainer>
+      {AiOutlineCheck}
+      <SelectedTaskTitle>
+        {selected.title}
+        <CheckedButton>MARQUE COMME TERMINE`</CheckedButton>
+      </SelectedTaskTitle>
+    </SelectedTaskContainer>
+  );
 }
 
-export default SelectedTask
+export default SelectedTask;

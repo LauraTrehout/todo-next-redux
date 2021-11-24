@@ -26,7 +26,9 @@ display: flex;
 flex-direction: column; 
 `
 
-export const DoneListContainer = styled(TodoContainer)``
+export const DoneListContainer = styled(TodoContainer)`
+background-color: #fff;
+`
 
 export const DoneContainer = styled.div`
 display: flex;

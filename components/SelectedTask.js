@@ -18,12 +18,16 @@ function SelectedTask({ todos, setTodos, selected, setSelected, done, setDone}) 
     setFinished(!finished)
     if(!finished) {
     setDone([...done, selected])
-    console.log('done', done);
+    setSelected(selected, selected.completed=true)
+    console.log(selected)
+  }
+  if(finished) {
+      console.log('finish');
+      setSelected(selected, selected.completed=false)
+      console.log(selected);
+  }
 }
-console.log(finished);
 
-
-  };
 
   return (
     <SelectedTaskContainer>

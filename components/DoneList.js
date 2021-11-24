@@ -2,7 +2,7 @@ import { DoneListContainer } from "../styles/Container.styled";
 import DoneItem from "./DoneItem";
 
 const DoneList = ({ done, setDone }) => {
-    console.log('donelist', done[0]);
+    
   return (
       
     <DoneListContainer>

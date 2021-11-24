@@ -18,8 +18,7 @@ export const SelectedTaskContainer = styled.div`
 display: flex;
 flex-direction: column;
 width: 70%;
-padding: 0.5em;
-background-color: #fff;
+background-color: ${({theme}) => theme.colors.bg};
 position: relative;
 `
 export const TodoContainer = styled.div`
@@ -38,5 +37,16 @@ display: flex;
 flex-direction: column; 
 background-color: #fff;
 `
+export const TaskDescription = styled.div`
+background-color: #fff;
+width: 100%;
+height:40vh;
+border-bottom: solid 1px lightgrey;
+`
 
+export const CommentSection = styled(TaskDescription)`
+height: 70px;
+display:flex;
+justify-content: flex-end;
+`
 

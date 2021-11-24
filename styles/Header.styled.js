@@ -5,3 +5,8 @@ color: ${({ theme }) => theme.colors.main};
 padding-left: 1rem;
 font-size: 1.2rem;
 `
+
+export const SelectedHeader = styled.div`
+height: 50px;
+background-color: #fff;
+`

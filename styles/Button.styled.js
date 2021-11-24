@@ -9,10 +9,12 @@ top:0;
 right:0;
 transform: translateX(-10px);
 background-color: #fff;
+border-radius: 3px;
 border: solid 0.5px ${({theme}) => theme.colors.bg};
 padding: 10px;
 font-size: 0.7rem;
 margin-top: 7px;
+cursor:pointer;
 `
 
 export const AddUser = styled.button`

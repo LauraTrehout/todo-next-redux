@@ -2,12 +2,12 @@ import { StyledCheckbox } from "../styles/Checkbox.styled";
 import { FlexContainer } from "../styles/Container.styled";
 import { TaskTitle } from "../styles/Title.styled";
 
-const DoneItem = () => {
+const DoneItem = ({ doneItem }) => {
     return ( 
         <FlexContainer>
-      <StyledCheckbox onClick={handleBoxClick}></StyledCheckbox>
+      <StyledCheckbox></StyledCheckbox>
       <TaskTitle>
-      {done.title}
+      {doneItem.title}
       </TaskTitle>
     </FlexContainer>
     );

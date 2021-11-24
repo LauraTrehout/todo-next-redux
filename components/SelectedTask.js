@@ -1,34 +1,44 @@
 import { AiOutlineCheck } from "react-icons/bi";
 import {
-    CommentSection,
-  FlexContainer,
+  CommentSection,
   SelectedTaskContainer,
   TaskDescription,
 } from "../styles/Container.styled";
-import { AddDate, AddUser, CheckedButton, CommentButton } from "../styles/Button.styled";
+import { CheckedButton, CommentButton } from "../styles/Button.styled";
 import { SelectedTaskTitle } from "../styles/Title.styled";
 import { SelectedHeader } from "../styles/Header.styled";
-import { DateSelector, UserSelector } from "../styles/Selector.styled";
-import Selectors from "./Selectors";
 import { TextArea } from "../styles/Input.styled";
+import { useState } from "react";
+import Selectors from "./Selectors";
 
-function SelectedTask({ selected, setSelected }) {
-  console.log("selected", selected.title);
+function SelectedTask({ todos, setTodos, selected, setSelected, done, setDone}) {
+  const [finished, setFinished] = useState(false);
+
+  const toggleTask = () => {
+    setFinished(!finished)
+    if(!finished) {
+    setDone([...done, selected])
+    console.log('done', done);
+}
+console.log(finished);
+
+
+  };
 
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
         <SelectedTaskTitle>{selected.title}</SelectedTaskTitle>
-        <CheckedButton>MARQUÉ COMME TERMINÉ</CheckedButton>
+        <CheckedButton onClick={toggleTask}>{!finished ? 'MARQUÉ COMME TERMINÉ' : 'A RÉALISER'}</CheckedButton>
       </SelectedHeader>
       <Selectors />
-      <TaskDescription>Description<br/>
-          <TextArea></TextArea>
+      <TaskDescription>
+        Description
+        <br />
+        <TextArea></TextArea>
       </TaskDescription>
       <CommentSection>
-          <CommentButton>
-        COMMENTER
-          </CommentButton>
+        <CommentButton>COMMENTER</CommentButton>
       </CommentSection>
     </SelectedTaskContainer>
   );

@@ -18,7 +18,6 @@ background-color: #fff;
 color: #000;
 padding: 0;
 padding-left: 10px;
-padding-top: 10px;
 `
 
 export const TaskTitle = styled.h3`

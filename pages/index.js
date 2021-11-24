@@ -51,8 +51,8 @@ export default function Home() {
               setSelected={setSelected}
               theme={theme}
             />
-            <SelectedTask todos={todos} selected={selected}
-              setSelected={setSelected} theme={theme}/>
+            <SelectedTask todos={todos} setTodos={setTodos} selected={selected}
+              setSelected={setSelected} done={done} setDone={setDone} theme={theme}/>
           </MainContainer>
         </ThemeProvider>
       </main>

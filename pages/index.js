@@ -38,7 +38,7 @@ export default function Home() {
       <main className="">
         <ThemeProvider theme={theme}>
           <GlobalStyles />
-          <Header />
+          <Header them={theme}/>
           <MainContainer>
             <Tasks
               todos={todos}

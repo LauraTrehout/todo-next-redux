@@ -14,7 +14,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   outline: none;
-  width: 80%;
+  width: 90%;
   height: 20vh;
   display: block;
   margin-left: auto;

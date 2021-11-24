@@ -12,7 +12,6 @@ function Todo({ todos, input, setInput, setTodos, done, setDone, selected, setSe
   }
 
   const handleAddTodo = (e) => {
-      console.log('key down');
     setTodos([...todos, {title: input, completed: false, id: Math.floor(Math.random()*100)}])
     setInput('')
   }

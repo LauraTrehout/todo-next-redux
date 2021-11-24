@@ -19,12 +19,9 @@ function SelectedTask({ todos, setTodos, selected, setSelected, done, setDone}) 
     if(!finished) {
     setDone([...done, selected])
     setSelected(selected, selected.completed=true)
-    console.log(selected)
   }
   if(finished) {
-      console.log('finish');
       setSelected(selected, selected.completed=false)
-      console.log(selected);
   }
 }
 
@@ -38,7 +35,6 @@ function SelectedTask({ todos, setTodos, selected, setSelected, done, setDone}) 
       <Selectors />
       <TaskDescription>
         Description
-        <br />
         <TextArea></TextArea>
       </TaskDescription>
       <CommentSection>

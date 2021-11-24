@@ -2,8 +2,14 @@ import styled from "styled-components"
 
 export const StyledHeader = styled.h1`
 color: ${({ theme }) => theme.colors.main};
-padding-left: 1rem;
+background-color:#fff;
 font-size: 1.2rem;
+height:60px;
+margin:0;
+display:flex;
+align-items:center;
+padding-left: 1rem;
+border-bottom: solid 0.2px ${({theme}) => theme.colors.greyTxt};
 `
 
 export const SelectedHeader = styled.div`

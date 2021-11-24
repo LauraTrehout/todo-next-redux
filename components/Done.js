@@ -4,10 +4,12 @@ import DoneList from "./DoneList";
 
 function Done({ done, setDone }) {
   return (
-    <DoneContainer>
+    <>
       <DoneTaskTitle>Tâches terminées</DoneTaskTitle>
+    <DoneContainer>
       <DoneList done={done} setDone={setDone}/>
     </DoneContainer>
+    </>
   );
 }
 

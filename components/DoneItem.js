@@ -1,14 +1,14 @@
 import { StyledCheckbox } from "../styles/Checkbox.styled";
 import { FlexContainer } from "../styles/Container.styled";
-import { TaskTitle } from "../styles/Title.styled";
+import { CrossedOutTask } from "../styles/Title.styled";
 
 const DoneItem = ({ doneItem }) => {
     return ( 
         <FlexContainer>
       <StyledCheckbox></StyledCheckbox>
-      <TaskTitle>
+      <CrossedOutTask>
       {doneItem.title}
-      </TaskTitle>
+      </CrossedOutTask>
     </FlexContainer>
     );
 }

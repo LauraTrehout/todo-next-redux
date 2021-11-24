@@ -34,4 +34,6 @@ export const CommentButton = styled(AllTasksTitle)`
 width: 150px;
 text-align: center;
 margin: 10px;
+border-radius: 5px;
+cursor:pointer;
 `

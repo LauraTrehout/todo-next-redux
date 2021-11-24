@@ -16,8 +16,9 @@ const theme = {
   }
 }
 const MainContainer = styled.div`
-height: 100%;
+height: 100vh;
 display: flex;
+background-color: ${({theme}) => theme.colors.bg}
 `
 export default function Home() {
   return (

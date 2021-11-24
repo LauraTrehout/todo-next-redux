@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const FlexContainer = styled.div`
+display: flex;
+align-items: center;
+`
+
 export const TasksContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -19,7 +24,6 @@ padding: 0.5em;
 export const TodoContainer = styled.div`
 display: flex;
 flex-direction: column; 
-height: 40%;
 `
 
 export const DoneContainer = styled.div`

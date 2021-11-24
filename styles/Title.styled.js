@@ -10,3 +10,9 @@ padding: 1rem;
 export const DoneTaskTitle = styled.h2`
 color: ${({theme}) => theme.colors.main};
 `
+
+export const TaskTitle = styled.h3`
+font-size: 1rem;
+font-family: bold;
+padding: 0.5rem;
+`

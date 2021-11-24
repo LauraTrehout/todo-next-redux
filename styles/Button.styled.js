@@ -36,4 +36,5 @@ text-align: center;
 margin: 10px;
 border-radius: 5px;
 cursor:pointer;
+font-size: 0.7rem;
 `

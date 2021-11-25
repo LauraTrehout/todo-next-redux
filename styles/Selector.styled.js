@@ -27,10 +27,6 @@ export const DateSelector = styled(UserSelector)`
 `
 
 export const SelectUser = styled.div`
-width:200px;
-// position: absolute;
-// bottom: 0;
-// transform: translateY(-100px)
 display: flex;
 flex-direction: column;
 `

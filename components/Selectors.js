@@ -10,11 +10,17 @@ import {
 } from "../styles/Selector.styled";
 
 import data from "../users.js";
+import User from "./User";
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
-const Selectors = () => {
+const Selectors = ({selectedUser, setSelectedUser, selectedDate, setSelectedDate}) => {
   const [users, setUsers] = useState(data);
   const [showUsers, setShowUsers] = useState(false);
   const [showDate, setShowDate] = useState(false);
+ 
+    
+  
 
   const toggleUserClick = () => {
     setShowUsers(!showUsers);
@@ -23,10 +29,12 @@ const Selectors = () => {
     setShowDate(!showDate);
   };
 
-  console.log(showUsers);
-  console.log(showDate);
+  const handleSelectDate = (date) => {
+      setSelectedDate(date)
+    }
 
   return (
+      
     <FlexContainer>
       <UserSelector>
           <SelectorFlex>
@@ -34,7 +42,8 @@ const Selectors = () => {
         <p>ATTRIBUER À</p>
         </SelectorFlex>
         {showUsers &&
-      <SelectUser>{users.data.map(user => <li key={user.id}> {user.name}</li>)}</SelectUser>}
+      <SelectUser>{users.data.map(user => <User key={user.id} user={user} selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser} showUsers={showUsers} setShowUsers={setShowUsers} />)}</SelectUser>}
       </UserSelector>
       <DateSelector>
           <SelectorFlex>
@@ -43,8 +52,11 @@ const Selectors = () => {
         </AddDate>
         ÉCHÉANCE
         </SelectorFlex>
+        {showDate && <DatePicker selected={selectedDate} onChange={handleSelectDate} dateFormat='dd/MM/yyyy' minDate={new Date()}/>}
       </DateSelector>
     </FlexContainer>
+      
+    
   );
 };
 

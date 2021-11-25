@@ -1,6 +1,6 @@
-import { Check } from '@styled-icons/bootstrap/Check'
-import {Todo} from '@styled-icons/remix-fill/Todo'
-import {PencilSquare} from '@styled-icons/bootstrap/PencilSquare'
+import { Check } from "@styled-icons/bootstrap/Check";
+import { Todo } from "@styled-icons/remix-fill/Todo";
+import { PencilSquare } from "@styled-icons/bootstrap/PencilSquare";
 import {
   CommentSection,
   FlexContainer,
@@ -14,35 +14,58 @@ import { TextArea } from "../styles/Input.styled";
 import { useState } from "react";
 import Selectors from "./Selectors";
 
-function SelectedTask({ todos, setTodos, selected, setSelected, done, setDone}) {
-  const [finished, setFinished] = useState(false);
+function SelectedTask({
+  todos,
+  setTodos,
+  selected,
+  setSelected,
+  done,
+  setDone,
+  selectedUser,
+  setSelectedUser,
+  selectedDate,
+  setSelectedDate,
+  finished,
+  setFinished
+}) {
+  
 
   const toggleTask = () => {
-    setFinished(!finished)
-    if(!finished) {
-    setDone([...done, selected])
-    setSelected(selected, selected.completed=true)
-  }
-  if(finished) {
-      setSelected(selected, selected.completed=false)
-  }
-}
-
+    // if(todos.length && selected){
+    setFinished(!finished);
+    if (!finished) {
+      setDone([...done, selected]);
+      setTodos(todos.filter(elem => elem.id !== selected.id))
+      setSelected(selected, (selected.completed = true));
+    }
+    if (finished) {
+      setSelected(selected, (selected.completed = false));
+      setDone(done.filter(elem => elem.id !== selected.id))
+      setTodos([...todos, selected])
+    }
+  };
+console.log('done', done);
 
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
         <SelectedTaskTitle>{selected.title}</SelectedTaskTitle>
         <CheckedButton onClick={toggleTask}>
-          {!finished && <Check size='25' />}
-          {finished && <Todo size='25'/>}
-          {!finished ? 'MARQUÉ COMME TERMINÉ' : 'A RÉALISER'}</CheckedButton>
+          {!finished && <Check size="25" />}
+          {finished && <Todo size="25" />}
+          {!finished ? "MARQUÉ COMME TERMINÉ" : "A RÉALISER"}
+        </CheckedButton>
       </SelectedHeader>
-      <Selectors />
+      <Selectors
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
       <TaskDescription>
         <FlexContainer>
-        <PencilSquare size='25'/>
-        <Description>Description</Description>
+          <PencilSquare size="25" />
+          <Description>Description</Description>
         </FlexContainer>
         <TextArea></TextArea>
       </TaskDescription>

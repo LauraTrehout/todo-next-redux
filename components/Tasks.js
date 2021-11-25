@@ -13,6 +13,12 @@ function Tasks({
   setDone,
   selected,
   setSelected,
+  selectedUser,
+  setSelectedUser,
+  selectedDate,
+  setSelectedDate,
+  finished, 
+  setFinished
 }) {
   return (
     <TasksContainer>
@@ -25,8 +31,23 @@ function Tasks({
         setDone={setDone}
         selected={selected}
         setSelected={setSelected}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        finished={finished}
+        setFinished={setFinished}
       />
-      <Done done={done} setDone={setDone} />
+      <Done
+        done={done}
+        setDone={setDone}
+        selected={selected}
+        setSelected={setSelected}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
     </TasksContainer>
   );
 }

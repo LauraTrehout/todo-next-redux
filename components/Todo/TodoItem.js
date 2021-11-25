@@ -1,7 +1,7 @@
 import { Check } from "@styled-icons/bootstrap/Check";
-import { TodoCheckbox } from "../styles/Checkbox.styled";
-import { FlexContainer } from "../styles/Container.styled";
-import { TaskTitle } from "../styles/Title.styled";
+import { TodoCheckbox } from "../../styles/Checkbox.styled";
+import { FlexContainer, TodoItemContainer } from "../../styles/Container.styled";
+import { TaskTitle } from "../../styles/Title.styled";
 
 const TodoItem = ({
   todo,
@@ -14,25 +14,26 @@ const TodoItem = ({
   selectedDate,
   setSelectedDate,
   finished,
-  setFinished
+  setFinished,
 }) => {
   const handleBoxClick = () => {
     setSelected(todo);
     setFinished(false);
-    // setSelectedUser({})
   };
 
+  // const user = selected.user
+
+
   return (
-    <FlexContainer>
+    <TodoItemContainer>
       <TodoCheckbox onClick={handleBoxClick}>
         <Check color="white" />
       </TodoCheckbox>
       <TaskTitle>
         {todo.title}
-        <p>{selectedUser.name}</p>
-        <p>{selectedDate}</p>
+        {/* {selectedUser} */}
       </TaskTitle>
-    </FlexContainer>
+    </TodoItemContainer>
   );
 };
 

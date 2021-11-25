@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const UserSelector = styled.div`
+export const UserSelectorDiv = styled.div`
 width: 200px;
 padding: 5px;
 margin: 15px;
@@ -23,7 +23,7 @@ align-items: center;
 width: 90%;
 `
 
-export const DateSelector = styled(UserSelector)`
+export const DateSelectorDiv = styled(UserSelectorDiv)`
 `
 
 export const SelectUser = styled.div`

@@ -3,13 +3,14 @@ import { useState } from "react";
 
 import { UserList } from "../styles/list.styled";
 
-const User = ({ user, selectedUser, setSelectedUser, showUsers, setShowUsers }) => {
+const User = ({ todos, setTodos, selected, setSelected, user, selectedUser, setSelectedUser, showUsers, setShowUsers }) => {
   
   const handleUserClick = () => {
-    setSelectedUser(user);
+    // setSelectedUser(user.name);
     setShowUsers(false)
+    // setSelected(selected, (selected.user = user))
   };
-  
+
   return (
     <UserList onClick={handleUserClick}>
       <UserCircle size="20" />

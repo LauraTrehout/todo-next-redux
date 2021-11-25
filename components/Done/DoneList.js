@@ -1,9 +1,7 @@
-import styled from "styled-components";
-import { TodoListContainer } from "../styles/Container.styled";
-import TodoItem from "./TodoItem";
+import { DoneListContainer } from "../../styles/Container.styled";
+import DoneItem from "./DoneItem";
 
-const TodoList = ({
-  todos,
+const DoneList = ({
   done,
   setDone,
   selected,
@@ -12,17 +10,15 @@ const TodoList = ({
   setSelectedUser,
   selectedDate,
   setSelectedDate,
-  finished, 
-  setFinished
+  finished,
+  setFinished,
 }) => {
   return (
-    <TodoListContainer>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          done={done}
-          setDone={setDone}
+    <DoneListContainer>
+      {done.map((doneItem, index) => (
+        <DoneItem
+          key={index}
+          doneItem={doneItem}
           selected={selected}
           setSelected={setSelected}
           selectedUser={selectedUser}
@@ -33,8 +29,8 @@ const TodoList = ({
           setFinished={setFinished}
         />
       ))}
-    </TodoListContainer>
+    </DoneListContainer>
   );
 };
 
-export default TodoList;
+export default DoneList;

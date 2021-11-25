@@ -1,6 +1,6 @@
-import { TodoContainer } from "../styles/Container.styled";
-import { AllTasksTitle } from "../styles/Title.styled";
-import { Input } from "../styles/Input.styled";
+import { TodoContainer } from "../../styles/Container.styled";
+import { AllTasksTitle } from "../../styles/Title.styled";
+import { Input } from "../../styles/Input.styled";
 import TodoList from "./TodoList";
 import { useState } from "react";
 
@@ -27,7 +27,7 @@ function Todo({
   const handleAddTodo = (e) => {
     setTodos([
       ...todos,
-      { title: input, completed: false, id: Math.floor(Math.random() * 100) },
+      { title: input, completed: false, id: Math.floor(Math.random() * 100), user:''},
     ]);
     setInput("");
   };

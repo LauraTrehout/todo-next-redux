@@ -1,5 +1,5 @@
-import { DoneContainer } from "../styles/Container.styled";
-import { DoneTaskTitle } from "../styles/Title.styled";
+import { DoneContainer } from "../../styles/Container.styled";
+import { DoneTaskTitle } from "../../styles/Title.styled";
 import DoneList from "./DoneList";
 
 function Done({
@@ -11,6 +11,8 @@ function Done({
   setSelectedUser,
   selectedDate,
   setSelectedDate,
+  finished,
+  setFinished,
 }) {
   return (
     <>
@@ -25,6 +27,8 @@ function Done({
           setSelectedUser={setSelectedUser}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          finished={finished}
+          setFinished={setFinished}
         />
       </DoneContainer>
     </>

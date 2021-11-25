@@ -12,7 +12,7 @@ import { Description, SelectedTaskTitle } from "../styles/Title.styled";
 import { SelectedHeader } from "../styles/Header.styled";
 import { TextArea } from "../styles/Input.styled";
 import { useState } from "react";
-import Selectors from "./Selectors";
+import Selectors from "./Selectors/Selectors";
 
 function SelectedTask({
   todos,
@@ -26,25 +26,23 @@ function SelectedTask({
   selectedDate,
   setSelectedDate,
   finished,
-  setFinished
+  setFinished,
 }) {
-  
-
   const toggleTask = () => {
     // if(todos.length && selected){
     setFinished(!finished);
     if (!finished) {
       setDone([...done, selected]);
-      setTodos(todos.filter(elem => elem.id !== selected.id))
+      setTodos(todos.filter((elem) => elem.id !== selected.id));
       setSelected(selected, (selected.completed = true));
     }
     if (finished) {
       setSelected(selected, (selected.completed = false));
-      setDone(done.filter(elem => elem.id !== selected.id))
-      setTodos([...todos, selected])
+      setDone(done.filter((elem) => elem.id !== selected.id));
+      setTodos([...todos, selected]);
     }
   };
-console.log('done', done);
+  console.log("done", done);
 
   return (
     <SelectedTaskContainer>
@@ -61,6 +59,10 @@ console.log('done', done);
         setSelectedUser={setSelectedUser}
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
+        todos={todos}
+        setTodos={setTodos}
+        selected={selected}
+        setSelected={setSelected}
       />
       <TaskDescription>
         <FlexContainer>

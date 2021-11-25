@@ -33,8 +33,15 @@ export const TodoListContainer = styled.div`
 display: flex;
 flex-direction: column;
 background-color: #fff;
-padding-left: 1rem;
 `;
+
+export const TodoItemContainer = styled(FlexContainer)`
+padding: 1rem;
+&:hover {
+  background-color: ${({theme}) => theme.colors.bg};
+  border-left: solid 5px ${({theme}) => theme.colors.main}
+}
+`
 
 export const DoneContainer = styled(TodoListContainer)`
 `

@@ -1,8 +1,8 @@
 import { Check } from "@styled-icons/bootstrap/Check";
 
-import { DoneCheckbox } from "../styles/Checkbox.styled";
-import { FlexContainer } from "../styles/Container.styled";
-import { CrossedOutTask } from "../styles/Title.styled";
+import { DoneCheckbox } from "../../styles/Checkbox.styled";
+import { FlexContainer } from "../../styles/Container.styled";
+import { CrossedOutTask } from "../../styles/Title.styled";
 
 const DoneItem = ({
   doneItem,
@@ -12,12 +12,14 @@ const DoneItem = ({
   setSelected,
   selectedDate,
   setSelectedDate,
+  finished,
+  setFinished
 }) => {
 
   const handleBoxClick = () => {
-setSelected(selected, selected.completed = false)
+setSelected(doneItem)
+setFinished(true)
   }
-console.log(selected);
 
   return (
     <FlexContainer>

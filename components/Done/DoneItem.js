@@ -1,7 +1,7 @@
 import { Check } from "@styled-icons/bootstrap/Check";
 
 import { DoneCheckbox } from "../../styles/Checkbox.styled";
-import { FlexContainer } from "../../styles/Container.styled";
+import { DoneItemContainer } from "../../styles/Container.styled";
 import { CrossedOutTask } from "../../styles/Title.styled";
 
 const DoneItem = ({
@@ -21,7 +21,7 @@ const DoneItem = ({
   };
 
   return (
-    <FlexContainer>
+    <DoneItemContainer>
       <DoneCheckbox onClick={handleBoxClick}>
         <Check color="white" size="20px" />
       </DoneCheckbox>
@@ -29,7 +29,7 @@ const DoneItem = ({
         {doneItem.title}
         <p>{selectedUser.name}</p>
       </CrossedOutTask>
-    </FlexContainer>
+    </DoneItemContainer>
   );
 };
 

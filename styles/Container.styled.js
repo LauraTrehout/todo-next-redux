@@ -8,7 +8,7 @@ export const FlexContainer = styled.div`
 export const TasksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25%;
+  flex: 1;
   height: 100%;
   background-color: @fff;
 `;
@@ -16,7 +16,7 @@ export const TasksContainer = styled.div`
 export const SelectedTaskContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex:4;
   background-color: ${({ theme }) => theme.colors.bg};
   position: relative;
 `;
@@ -30,21 +30,22 @@ export const DoneListContainer = styled(TodoContainer)`
 `;
 
 export const TodoListContainer = styled.div`
-display: flex;
-flex-direction: column;
-background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 `;
 
 export const TodoItemContainer = styled(FlexContainer)`
-padding: 1rem;
-&:hover {
-  background-color: ${({theme}) => theme.colors.bg};
-  border-left: solid 5px ${({theme}) => theme.colors.main}
-}
-`
+  padding: 1rem;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bg};
+    border-left: solid 5px ${({ theme }) => theme.colors.main};
+  }
+`;
+export const DoneItemContainer = styled(TodoItemContainer)``;
 
-export const DoneContainer = styled(TodoListContainer)`
-`
+export const DoneContainer = styled(TodoListContainer)``;
+
 export const TaskDescription = styled.div`
   background-color: #fff;
   width: 100%;
@@ -53,7 +54,7 @@ export const TaskDescription = styled.div`
   font-family: bold;
   font-size: 0.9rem;
   padding-left: 15px;
-`
+`;
 
 export const CommentSection = styled(TaskDescription)`
   height: 70px;
@@ -61,4 +62,4 @@ export const CommentSection = styled(TaskDescription)`
   justify-content: flex-end;
   border-top: solid 1.8px ${({ theme }) => theme.colors.bg};
   padding: 0;
-`
+`;

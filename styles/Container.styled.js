@@ -42,12 +42,16 @@ export const TaskDescription = styled.div`
   background-color: #fff;
   width: 100%;
   height: 30vh;
-  border-bottom: solid 1px lightgrey;
   margin-left: 20px;
+  font-family: bold;
+  font-size: 0.9rem;
+  padding-left: 15px;
 `
 
 export const CommentSection = styled(TaskDescription)`
   height: 70px;
   display: flex;
   justify-content: flex-end;
+  border-top: solid 1.8px ${({ theme }) => theme.colors.bg};
+  padding: 0;
 `

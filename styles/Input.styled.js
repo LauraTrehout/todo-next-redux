@@ -20,5 +20,5 @@ export const TextArea = styled.textarea`
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  border: solid 0.5px lightgrey;
+  border: solid 1.5px ${({ theme }) => theme.colors.bg};
 `;

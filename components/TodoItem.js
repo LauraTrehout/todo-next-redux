@@ -1,6 +1,6 @@
 
 import { Check } from '@styled-icons/bootstrap/Check'
-import { StyledCheckbox } from "../styles/Checkbox.styled";
+import { TodoCheckbox } from "../styles/Checkbox.styled";
 import { FlexContainer } from "../styles/Container.styled";
 import { TaskTitle } from "../styles/Title.styled";
 
@@ -12,9 +12,9 @@ const TodoItem = ({ todo, done, setDone, selected, setSelected }) => {
 
   return (
     <FlexContainer>
-      <StyledCheckbox onClick={handleBoxClick}>
+      <TodoCheckbox onClick={handleBoxClick}>
           <Check color='white'/>
-      </StyledCheckbox>
+      </TodoCheckbox>
       <TaskTitle>
       {todo.title}
       </TaskTitle>

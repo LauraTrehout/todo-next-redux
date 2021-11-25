@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const UserSelector = styled.div`
 width: 200px;
-padding: 7px;
+padding: 5px;
 margin: 15px;
 color : ${({theme})=> theme.colors.greyTxt};
 font-size: 0.8rem;

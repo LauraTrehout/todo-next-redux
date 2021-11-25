@@ -11,7 +11,7 @@ transform: translateX(-10px);
 background-color: #fff;
 border-radius: 3px;
 border: solid 0.5px ${({theme}) => theme.colors.bg};
-padding: 10px;
+padding: 5px;
 font-size: 0.7rem;
 margin-top: 7px;
 cursor:pointer;
@@ -26,9 +26,12 @@ padding: 7px;
 height: 40px;
 width:40px;
 cursor:pointer;
+color: grey;
 `
 
-export const AddDate = styled(AddUser)``
+export const AddDate = styled(AddUser)`
+padding: 0;
+`
 
 export const CommentButton = styled(AllTasksTitle)`
 width: 150px;

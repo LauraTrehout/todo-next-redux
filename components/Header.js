@@ -1,11 +1,7 @@
-import React from 'react'
-import { StyledHeader } from '../styles/Header.styled'
+import { StyledHeader } from "../styles/Header.styled";
 
 function Header() {
-    return (
-        <StyledHeader>
-            todoist</StyledHeader>
-    )
+  return <StyledHeader>todoist</StyledHeader>;
 }
 
-export default Header
+export default Header;

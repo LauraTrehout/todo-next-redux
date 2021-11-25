@@ -1,6 +1,6 @@
 import { Check } from "@styled-icons/bootstrap/Check";
-import { Todo } from "@styled-icons/remix-fill/Todo";
 import { PencilSquare } from "@styled-icons/bootstrap/PencilSquare";
+import { Todo } from "@styled-icons/remix-fill/Todo";
 import {
   CommentSection,
   FlexContainer,
@@ -11,7 +11,6 @@ import { CheckedButton, CommentButton } from "../styles/Button.styled";
 import { Description, SelectedTaskTitle } from "../styles/Title.styled";
 import { SelectedHeader } from "../styles/Header.styled";
 import { TextArea } from "../styles/Input.styled";
-import { useState } from "react";
 import Selectors from "./Selectors/Selectors";
 
 function SelectedTask({
@@ -29,7 +28,6 @@ function SelectedTask({
   setFinished,
 }) {
   const toggleTask = () => {
-    // if(todos.length && selected){
     setFinished(!finished);
     if (!finished) {
       setDone([...done, selected]);
@@ -42,17 +40,18 @@ function SelectedTask({
       setTodos([...todos, selected]);
     }
   };
-  console.log("done", done);
 
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
         <SelectedTaskTitle>{selected.title}</SelectedTaskTitle>
-        <CheckedButton onClick={toggleTask}>
-          {!finished && <Check size="25" />}
-          {finished && <Todo size="25" />}
-          {!finished ? "MARQUÉ COMME TERMINÉ" : "A RÉALISER"}
-        </CheckedButton>
+        {selected.title && (
+          <CheckedButton onClick={toggleTask}>
+            {!finished && <Check size="25" />}
+            {finished && <Todo size="25" />}
+            {!finished ? "MARQUÉ COMME TERMINÉ" : "A RÉALISER"}
+          </CheckedButton>
+        )}
       </SelectedHeader>
       <Selectors
         selectedUser={selectedUser}

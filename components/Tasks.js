@@ -1,4 +1,3 @@
-import React from "react";
 import { TasksContainer } from "../styles/Container.styled";
 
 import Done from "./Done/Done";
@@ -17,8 +16,8 @@ function Tasks({
   setSelectedUser,
   selectedDate,
   setSelectedDate,
-  finished, 
-  setFinished
+  finished,
+  setFinished,
 }) {
   return (
     <TasksContainer>

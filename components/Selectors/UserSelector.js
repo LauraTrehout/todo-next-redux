@@ -1,5 +1,9 @@
 import { AddUser } from "../../styles/Button.styled";
-import { SelectorFlex, SelectUser, UserSelectorDiv } from "../../styles/Selector.styled";
+import {
+  SelectorFlex,
+  SelectUser,
+  UserSelectorDiv,
+} from "../../styles/Selector.styled";
 import User from "../User";
 
 const UserSelector = ({
@@ -13,7 +17,8 @@ const UserSelector = ({
   setSelected,
   showUsers,
   setShowUsers,
-  toggleUserClick, users
+  toggleUserClick,
+  users,
 }) => {
   return (
     <UserSelectorDiv>

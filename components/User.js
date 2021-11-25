@@ -1,13 +1,20 @@
 import { UserCircle } from "@styled-icons/boxicons-regular/UserCircle";
-import { useState } from "react";
-
 import { UserList } from "../styles/list.styled";
 
-const User = ({ todos, setTodos, selected, setSelected, user, selectedUser, setSelectedUser, showUsers, setShowUsers }) => {
-  
+const User = ({
+  todos,
+  setTodos,
+  selected,
+  setSelected,
+  user,
+  selectedUser,
+  setSelectedUser,
+  showUsers,
+  setShowUsers,
+}) => {
   const handleUserClick = () => {
     // setSelectedUser(user.name);
-    setShowUsers(false)
+    setShowUsers(false);
     // setSelected(selected, (selected.user = user))
   };
 

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { FlexContainer } from "../../styles/Container.styled";
 import data from "../../users.js";
-import UserSelector from './UserSelector'
 
-
+import UserSelector from "./UserSelector";
 import DateSelector from "./DateSelector";
 
 const Selectors = ({
@@ -13,10 +12,10 @@ const Selectors = ({
   setSelectedDate,
   todos,
   setTodos,
-  finished, 
+  finished,
   setFinished,
-  selected, 
-  setSelected
+  selected,
+  setSelected,
 }) => {
   const [users, setUsers] = useState(data);
   const [showUsers, setShowUsers] = useState(false);
@@ -29,11 +28,22 @@ const Selectors = ({
     setShowDate(!showDate);
   };
 
-
   return (
     <FlexContainer>
-      <UserSelector users={users} setUsers={setUsers} showUsers={showUsers} setShowUsers={setShowUsers} toggleUserClick={toggleUserClick} />
-      <DateSelector toggleTaskDate={toggleTaskDate} showDate={showDate} setShowDate={setShowDate} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+      <UserSelector
+        users={users}
+        setUsers={setUsers}
+        showUsers={showUsers}
+        setShowUsers={setShowUsers}
+        toggleUserClick={toggleUserClick}
+      />
+      <DateSelector
+        toggleTaskDate={toggleTaskDate}
+        showDate={showDate}
+        setShowDate={setShowDate}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
     </FlexContainer>
   );
 };

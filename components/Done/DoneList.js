@@ -3,7 +3,6 @@ import DoneItem from "./DoneItem";
 
 const DoneList = ({
   done,
-  setDone,
   selected,
   setSelected,
   selectedUser,

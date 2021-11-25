@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { TodoListContainer } from "../../styles/Container.styled";
 import TodoItem from "./TodoItem";
 
@@ -12,8 +11,8 @@ const TodoList = ({
   setSelectedUser,
   selectedDate,
   setSelectedDate,
-  finished, 
-  setFinished
+  finished,
+  setFinished,
 }) => {
   return (
     <TodoListContainer>

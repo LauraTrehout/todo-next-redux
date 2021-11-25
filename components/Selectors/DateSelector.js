@@ -9,7 +9,6 @@ const DateSelector = ({
   selectedDate,
   setSelectedDate,
   showDate,
-  setShowDate,
 }) => {
   const handleSelectDate = (date) => {
     setSelectedDate(date);

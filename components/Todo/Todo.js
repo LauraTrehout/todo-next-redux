@@ -2,7 +2,6 @@ import { TodoContainer } from "../../styles/Container.styled";
 import { AllTasksTitle } from "../../styles/Title.styled";
 import { Input } from "../../styles/Input.styled";
 import TodoList from "./TodoList";
-import { useState } from "react";
 
 function Todo({
   todos,
@@ -18,17 +17,24 @@ function Todo({
   selectedDate,
   setSelectedDate,
   finished,
-  setFinished
+  setFinished,
 }) {
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
   const handleAddTodo = (e) => {
-    setTodos([
-      ...todos,
-      { title: input, completed: false, id: Math.floor(Math.random() * 100), user:''},
-    ]);
+    if (input !== "") {
+      setTodos([
+        ...todos,
+        {
+          title: input,
+          completed: false,
+          id: Math.floor(Math.random() * 100),
+          user: "",
+        },
+      ]);
+    }
     setInput("");
   };
   return (

@@ -13,21 +13,22 @@ const DoneItem = ({
   selectedDate,
   setSelectedDate,
   finished,
-  setFinished
+  setFinished,
 }) => {
-
   const handleBoxClick = () => {
-setSelected(doneItem)
-setFinished(true)
-  }
+    setSelected(doneItem);
+    setFinished(true);
+  };
 
   return (
     <FlexContainer>
       <DoneCheckbox onClick={handleBoxClick}>
         <Check color="white" size="20px" />
       </DoneCheckbox>
-      <CrossedOutTask>{doneItem.title}
-      <p>{selectedUser.name}</p></CrossedOutTask>
+      <CrossedOutTask>
+        {doneItem.title}
+        <p>{selectedUser.name}</p>
+      </CrossedOutTask>
     </FlexContainer>
   );
 };

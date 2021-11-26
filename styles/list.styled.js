@@ -5,6 +5,5 @@ export const UserList = styled.li`
   cursor: pointer;
   display: flex;
   justify-content: space-evenly;
-  width: 100px;
   color: black;
 `;

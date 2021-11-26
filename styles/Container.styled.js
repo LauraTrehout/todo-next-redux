@@ -48,7 +48,7 @@ export const DoneContainer = styled(TodoListContainer)``;
 
 export const TaskDescription = styled.div`
   background-color: #fff;
-  width: 100%;
+  width: 95%;
   height: 30vh;
   margin-left: 20px;
   font-family: bold;

@@ -2,21 +2,18 @@ import { UserCircle } from "@styled-icons/boxicons-regular/UserCircle";
 import { UserList } from "../styles/list.styled";
 
 const User = ({
-  todos,
-  setTodos,
   selected,
   setSelected,
   user,
   selectedUser,
   setSelectedUser,
-  showUsers,
   setShowUsers,
 }) => {
   const handleUserClick = () => {
     // setSelectedUser(user.name);
     setShowUsers(false);
-    // setSelected(selected, (selected.user = user))
-  };
+    setSelected(selected, (selected.taskUser = user))
+};
 
   return (
     <UserList onClick={handleUserClick}>

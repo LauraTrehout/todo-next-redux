@@ -17,7 +17,7 @@ const TodoItem = ({
     setSelected(todo);
     setFinished(false);
   };
-
+  console.log(selected);
   return (
     <TodoItemContainer>
       <TodoCheckbox onClick={handleBoxClick}>
@@ -25,7 +25,6 @@ const TodoItem = ({
       </TodoCheckbox>
       <TaskTitle>
         {todo.title}
-        {/* {selectedUser} */}
       </TaskTitle>
     </TodoItemContainer>
   );

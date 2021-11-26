@@ -13,6 +13,7 @@ const DateSelector = ({
   const handleSelectDate = (date) => {
     setSelectedDate(date);
   };
+
   return (
     <DateSelectorDiv>
       <SelectorFlex>

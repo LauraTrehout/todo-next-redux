@@ -1,7 +1,7 @@
 import { types as typesSelectedTask } from "../actions/selectedTask.actions";
 
 const initialState = {
-  selectedTask: {},
+  selectedTask: ''
 };
 
 function selectedTaskReducer(state = initialState, action) {

@@ -21,7 +21,6 @@ function Tasks({
   return (
     <TasksContainer>
       <Todo
-        // todos={todos}
         input={input}
         setInput={setInput}
         setTodos={setTodos}

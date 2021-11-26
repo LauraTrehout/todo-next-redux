@@ -12,40 +12,41 @@ import { Description, SelectedTaskTitle } from "../styles/Title.styled";
 import { SelectedHeader } from "../styles/Header.styled";
 import { TextArea } from "../styles/Input.styled";
 import Selectors from "./Selectors/Selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { newDone } from "../redux/actions/done.actions";
+import { deleteDone } from "../redux/actions/done.actions";
+import { deleteTodo } from "../redux/actions/todos.actions";
+import { newTodo } from "../redux/actions/todos.actions";
 
-function SelectedTask({
-  todos,
-  setTodos,
-  selected,
-  setSelected,
-  done,
-  setDone,
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
-  finished,
-  setFinished,
-}) {
+function SelectedTask({ finished, setFinished }) {
+  const dispatch = useDispatch();
+  const selectedTask = useSelector(
+    (state) => state.selectedTaskReducer.selectedTask
+  );
+  const done = useSelector((state) => state.doneReducer.done);
+  const todos = useSelector((state) => state.todosReducer.todos);
   const toggleTask = () => {
     setFinished(!finished);
     if (!finished) {
-      setDone([...done, selected]);
-      setTodos(todos.filter((elem) => elem.id !== selected.id));
-      setSelected(selected, (selected.completed = true));
+      dispatch(newDone(selectedTask[0]));
+      dispatch(
+        deleteTodo(todos.filter((elem) => elem.id !== selectedTask[0].id))
+      );
     }
     if (finished) {
-      setSelected(selected, (selected.completed = false));
-      setDone(done.filter((elem) => elem.id !== selected.id));
-      setTodos([...todos, selected]);
+      dispatch(
+        deleteDone(done.filter((elem) => elem.id !== selectedTask[0].id)),
+        newTodo(...todos, selectedTask)
+      );
     }
   };
-
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
-        <SelectedTaskTitle>{selected.title}</SelectedTaskTitle>
-        {selected.title && (
+        <SelectedTaskTitle>
+          {selectedTask ? selectedTask[0].title : null}
+        </SelectedTaskTitle>
+        {selectedTask && (
           <CheckedButton onClick={toggleTask}>
             {!finished && <Check size="25" />}
             {finished && <Todo size="25" />}
@@ -53,16 +54,8 @@ function SelectedTask({
           </CheckedButton>
         )}
       </SelectedHeader>
-      <Selectors
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        todos={todos}
-        setTodos={setTodos}
-        selected={selected}
-        setSelected={setSelected}
-      />
+
+      <Selectors />
       <TaskDescription>
         <FlexContainer>
           <PencilSquare size="25" />

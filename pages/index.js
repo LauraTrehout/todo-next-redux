@@ -48,8 +48,6 @@ export default function Home() {
           <Header />
           <MainContainer>
             <Tasks
-              // todos={todos}
-              // setTodos={setTodos}
               input={input}
               setInput={setInput}
               done={done}

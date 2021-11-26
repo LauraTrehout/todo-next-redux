@@ -30,7 +30,6 @@ function Todo({
       dispatch(
         newTodo({
           title: input,
-          completed: false,
           id: Math.floor(Math.random() * 100),
           taskUser: "",
           date:''

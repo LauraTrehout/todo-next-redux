@@ -1,16 +1,11 @@
 import { TodoListContainer } from "../../styles/Container.styled";
 import TodoItem from "./TodoItem";
 
+
 const TodoList = ({
   todos,
   done,
   setDone,
-  selected,
-  setSelected,
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
   finished,
   setFinished,
 }) => {
@@ -22,12 +17,6 @@ const TodoList = ({
           todo={todo}
           done={done}
           setDone={setDone}
-          selected={selected}
-          setSelected={setSelected}
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
           finished={finished}
           setFinished={setFinished}
         />

@@ -4,7 +4,6 @@ import Done from "./Done/Done";
 import Todo from "./Todo/Todo";
 
 function Tasks({
-  todos,
   input,
   setInput,
   setTodos,
@@ -22,7 +21,7 @@ function Tasks({
   return (
     <TasksContainer>
       <Todo
-        todos={todos}
+        // todos={todos}
         input={input}
         setInput={setInput}
         setTodos={setTodos}

@@ -33,39 +33,38 @@ function Todo({
           completed: false,
           id: Math.floor(Math.random() * 100),
           taskUser: "",
-        }),
-        );
-        setInput("")
+          date:''
+        })
+      );
+      setInput("");
     }
-    }
-
-    console.log(todos);
-
-    return (
-      <TodoContainer>
-        <AllTasksTitle>Toutes les tâches</AllTasksTitle>
-        <Input
-          type="text"
-          placeholder=" + Ajouter une tâche"
-          value={input}
-          onChange={handleInputChange}
-          onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
-        />
-        <TodoList
-          todos={todos}
-          done={done}
-          setDone={setDone}
-          selected={selected}
-          setSelected={setSelected}
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          finished={finished}
-          setFinished={setFinished}
-        />
-      </TodoContainer>
-    );
   };
+
+  return (
+    <TodoContainer>
+      <AllTasksTitle>Toutes les tâches</AllTasksTitle>
+      <Input
+        type="text"
+        placeholder=" + Ajouter une tâche"
+        value={input}
+        onChange={handleInputChange}
+        onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
+      />
+      <TodoList
+        todos={todos}
+        done={done}
+        setDone={setDone}
+        selected={selected}
+        setSelected={setSelected}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+        finished={finished}
+        setFinished={setFinished}
+      />
+    </TodoContainer>
+  );
+}
 
 export default Todo;

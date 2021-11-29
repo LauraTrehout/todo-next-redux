@@ -2,7 +2,7 @@ import { TimeFive } from "@styled-icons/boxicons-regular";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AddDate } from "../../styles/Button.styled";
-import { DateSelectorDiv, SelectorFlex } from "../../styles/Selector.styled";
+import { DateContainer, DateSelectorDiv, SelectorFlex } from "../../styles/Selector.styled";
 
 const DateSelector = ({
   toggleTaskDate,
@@ -15,22 +15,26 @@ const DateSelector = ({
   };
 
   return (
-    <DateSelectorDiv>
-      <SelectorFlex>
-        <AddDate onClick={toggleTaskDate}>
-          <TimeFive color="grey" size="20" />
-        </AddDate>
-        ÉCHÉANCE
-      </SelectorFlex>
+    <>
+      <DateSelectorDiv>
+        <SelectorFlex>
+          <AddDate onClick={toggleTaskDate}>
+            <TimeFive color="grey" size="20" />
+          </AddDate>
+          ÉCHÉANCE
+        </SelectorFlex>
+      </DateSelectorDiv>
       {showDate && (
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleSelectDate}
-          dateFormat="dd/MM/yyyy"
-          minDate={new Date()}
-        />
+        <DateContainer>
+          <DatePicker
+            selected={selectedDate}
+            onChange={handleSelectDate}
+            dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
+          />
+        </DateContainer>
       )}
-    </DateSelectorDiv>
+    </>
   );
 };
 

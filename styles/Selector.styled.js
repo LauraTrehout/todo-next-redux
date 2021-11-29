@@ -37,3 +37,8 @@ export const SelectUser = styled.div`
   margin-left: 20px;
   padding: 1.5rem; ;
 `;
+
+export const DateContainer = styled(SelectUser)`
+top: 0;
+transform: translate(220px,120px);
+`

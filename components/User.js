@@ -11,7 +11,7 @@ const User = ({ user }) => {
   const handleUserClick = () => {
     dispatch(
       setUser({
-        id_user: user.id,
+        id_user: user.name,
         id_task: selectedTask.id,
       })
     );

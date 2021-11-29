@@ -44,7 +44,6 @@ function reducer(state = initialState, action) {
           _todos.push(task);
         }
       });
-
       return {
         ...state,
         todos: _todos,

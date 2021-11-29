@@ -4,8 +4,6 @@ import TodoItem from "./TodoItem";
 
 const TodoList = ({
   todos,
-  done,
-  setDone,
   finished,
   setFinished,
 }) => {
@@ -15,8 +13,6 @@ const TodoList = ({
         <TodoItem
           key={todo.id}
           todo={todo}
-          done={done}
-          setDone={setDone}
           finished={finished}
           setFinished={setFinished}
         />

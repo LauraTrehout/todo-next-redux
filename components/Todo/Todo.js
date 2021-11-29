@@ -8,14 +8,6 @@ import { newTodo } from "../../redux/actions/tasks.actions";
 function Todo({
   input,
   setInput,
-  done,
-  setDone,
-  selected,
-  setSelected,
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
   finished,
   setFinished,
 }) {
@@ -51,14 +43,6 @@ function Todo({
       />
       <TodoList
         todos={todos}
-        done={done}
-        setDone={setDone}
-        selected={selected}
-        setSelected={setSelected}
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
         finished={finished}
         setFinished={setFinished}
       />

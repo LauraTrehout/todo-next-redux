@@ -1,24 +1,31 @@
 import { UserCircle } from "@styled-icons/boxicons-regular/UserCircle";
-import { UserList } from "../styles/list.styled";
+import { UserList } from "../styles/List.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../redux/actions/tasks.actions";
+import { UserEmail } from "../styles/Title.styled";
+import { FlexContainer, UserDetails } from "../styles/Container.styled";
 
-const User = ({
-  selected,
-  setSelected,
-  user,
-  selectedUser,
-  setSelectedUser,
-  setShowUsers,
-}) => {
+const User = ({ user }) => {
+  const dispatch = useDispatch();
+  const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
   const handleUserClick = () => {
-    // setSelectedUser(user.name);
-    setShowUsers(false);
-    setSelected(selected, (selected.taskUser = user))
-};
+    dispatch(
+      setUser({
+        id_user: user.id,
+        id_task: selectedTask.id,
+      })
+    );
+  };
 
   return (
     <UserList onClick={handleUserClick}>
-      <UserCircle size="20" />
+      <FlexContainer>
+      <UserCircle size="40" />
+      <UserDetails>
       {user.name}
+      <UserEmail>{user.email}</UserEmail>
+      </UserDetails>
+      </FlexContainer>
     </UserList>
   );
 };

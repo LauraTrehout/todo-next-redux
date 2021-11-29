@@ -3,14 +3,6 @@ import { DoneTaskTitle } from "../../styles/Title.styled";
 import DoneList from "./DoneList";
 
 function Done({
-  done,
-  setDone,
-  selected,
-  setSelected,
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
   finished,
   setFinished,
 }) {
@@ -19,14 +11,6 @@ function Done({
       <DoneTaskTitle>Tâches terminées</DoneTaskTitle>
       <DoneContainer>
         <DoneList
-          done={done}
-          setDone={setDone}
-          selected={selected}
-          setSelected={setSelected}
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
           finished={finished}
           setFinished={setFinished}
         />

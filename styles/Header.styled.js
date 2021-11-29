@@ -4,7 +4,6 @@ export const StyledHeader = styled.h1`
   color: ${({ theme }) => theme.colors.main};
   background-color: #fff;
   font-size: 1.2rem;
-  font-family: bold;
   height: 60px;
   margin: 0;
   display: flex;

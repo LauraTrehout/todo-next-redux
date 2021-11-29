@@ -3,6 +3,7 @@ export const types = {
   DELETE_TODO: "tasks/DELETE_TODO",
   ADD_DONE: "tasks/ADD_DONE",
   DELETE_DONE: "tasks/DELETE_DONE",
+  SET_USER: "tasks/SET_USER"
 
 };
 
@@ -27,6 +28,12 @@ export function newDone(payload) {
 export function deleteDone(payload) {
   return {
     type: types.DELETE_DONE,
+    payload,
+  };
+}
+export function setUser(payload) {
+  return {
+    type: types.SET_USER,
     payload,
   };
 }

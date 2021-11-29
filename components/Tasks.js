@@ -6,15 +6,6 @@ import Todo from "./Todo/Todo";
 function Tasks({
   input,
   setInput,
-  setTodos,
-  done,
-  setDone,
-  selected,
-  setSelected,
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
   finished,
   setFinished,
 }) {
@@ -23,27 +14,10 @@ function Tasks({
       <Todo
         input={input}
         setInput={setInput}
-        setTodos={setTodos}
-        done={done}
-        setDone={setDone}
-        selected={selected}
-        setSelected={setSelected}
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
         finished={finished}
         setFinished={setFinished}
       />
       <Done
-        done={done}
-        setDone={setDone}
-        selected={selected}
-        setSelected={setSelected}
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
         finished={finished}
         setFinished={setFinished}
       />

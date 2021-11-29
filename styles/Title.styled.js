@@ -4,14 +4,14 @@ export const AllTasksTitle = styled.h2`
   background-color: ${({ theme }) => theme.colors.main};
   color: #fff;
   font-size: 1rem;
-  font-family: bold;
   padding: 1.2rem;
   margin: 0;
+  font-weight: 500;
 `;
 
 export const DoneTaskTitle = styled(AllTasksTitle)`
   color: ${({ theme }) => theme.colors.main};
-  background-color: #E8DED1;
+  background-color: #e8ded1;
   margin-left: 0;
   padding: 0.6rem;
 `;
@@ -27,7 +27,6 @@ export const SelectedTaskTitle = styled(AllTasksTitle)`
 
 export const TaskTitle = styled.h3`
   font-size: 1rem;
-  font-family: bold;
   padding: 0.5rem;
 `;
 
@@ -35,9 +34,12 @@ export const CrossedOutTask = styled.p`
   text-decoration: line-through;
   padding-left: 10px;
   font-size: 1rem;
-  font-family: bold;
 `;
 
 export const Description = styled(TaskTitle)`
   padding-left: 15px;
 `;
+
+export const UserEmail = styled.p`
+color: ${({ theme }) => theme.colors.greyTxt};
+`

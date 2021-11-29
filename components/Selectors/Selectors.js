@@ -6,16 +6,6 @@ import UserSelector from "./UserSelector";
 import DateSelector from "./DateSelector";
 
 const Selectors = ({
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
-  todos,
-  setTodos,
-  finished,
-  setFinished,
-  selected,
-  setSelected,
 }) => {
   const [users, setUsers] = useState(data);
   const [showUsers, setShowUsers] = useState(false);
@@ -41,8 +31,6 @@ const Selectors = ({
         toggleTaskDate={toggleTaskDate}
         showDate={showDate}
         setShowDate={setShowDate}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
       />
     </FlexContainer>
   );

@@ -1,5 +1,6 @@
 export const types = {
     ADD: "selectedTask/ADD",
+    ADD_USER: "selectedTask/ADD_USER"
   };
   
   export function newSelectedTask(payload) {
@@ -8,3 +9,4 @@ export const types = {
       payload,
     };
   }
+  

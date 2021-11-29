@@ -5,7 +5,7 @@ const initialState = {
   done: [],
 };
 
-function reducer (state = initialState, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case typesTasks.ADD_TODO:
       let newTodos = [...state.todos, action.payload];
@@ -14,7 +14,9 @@ function reducer (state = initialState, action) {
         todos: newTodos,
       };
     case typesTasks.DELETE_TODO:
-      let deleteTodos = state.todos.filter(todo => todo.id !== action.payload);
+      let deleteTodos = state.todos.filter(
+        (todo) => todo.id !== action.payload
+      );
       return {
         ...state,
         todos: deleteTodos,
@@ -26,10 +28,26 @@ function reducer (state = initialState, action) {
         done: newDone,
       };
     case typesTasks.DELETE_DONE:
-      let deleteDone = state.done.filter(elem => elem.id !== action.payload);
+      let deleteDone = state.done.filter((elem) => elem.id !== action.payload);
       return {
         ...state,
         done: deleteDone,
+      };
+    case typesTasks.SET_USER:
+      const { id_user, id_task } = action.payload;
+      let _todos = [];
+      state.todos.map((task) => {
+        if (task.id === id_task) {
+          task.taskUser = id_user;
+          _todos.push(task);
+        } else {
+          _todos.push(task);
+        }
+      });
+
+      return {
+        ...state,
+        todos: _todos,
       };
     default:
       return state;

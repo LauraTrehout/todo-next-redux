@@ -5,10 +5,6 @@ import { newDone } from '../../redux/actions/tasks.actions'
 
 
 const DoneList = ({
-  selectedUser,
-  setSelectedUser,
-  selectedDate,
-  setSelectedDate,
   finished,
   setFinished,
 }) => {
@@ -16,7 +12,7 @@ const done = useSelector(state => state.tasks.done)
 
   return (
     <DoneListContainer>
-      {done.map((doneItem, index) => (
+      {done && done.map((doneItem, index) => (
         <DoneItem
           key={index}
           doneItem={doneItem}

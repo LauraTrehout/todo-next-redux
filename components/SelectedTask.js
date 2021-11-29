@@ -27,25 +27,24 @@ function SelectedTask({ finished, setFinished }) {
   const toggleTask = () => {
     setFinished(!finished);
     if (!finished) {
-      dispatch(newDone(selectedTask[0]));
+      dispatch(newDone(selectedTask));
       dispatch(
-        deleteTodo(selectedTask[0].id))
+        deleteTodo(selectedTask.id))
       
     }
     if (finished) {
       dispatch(
-        deleteDone(selectedTask[0].id),
-        dispatch(newTodo(selectedTask[0]))
+        deleteDone(selectedTask.id),
+        dispatch(newTodo(selectedTask))
       );
     }
   };
 
-  console.log(selectedTask);
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
         <SelectedTaskTitle>
-          {selectedTask ? selectedTask[0].title : null}
+          {selectedTask ? selectedTask.title : null}
         </SelectedTaskTitle>
         {selectedTask && (
           <CheckedButton onClick={toggleTask}>
@@ -55,7 +54,8 @@ function SelectedTask({ finished, setFinished }) {
           </CheckedButton>
         )}
       </SelectedHeader>
-
+      {selectedTask &&
+      <>
       <Selectors />
       <TaskDescription>
         <FlexContainer>
@@ -67,6 +67,7 @@ function SelectedTask({ finished, setFinished }) {
       <CommentSection>
         <CommentButton>COMMENTER</CommentButton>
       </CommentSection>
+      </>}
     </SelectedTaskContainer>
   );
 }

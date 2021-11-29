@@ -8,9 +8,6 @@ import { newSelectedTask } from "../../redux/actions/selectedTask.actions";
 
 const DoneItem = ({ doneItem, setFinished }) => {
   const dispatch = useDispatch();
-  const selectedTask = useSelector(
-    (state) => state.selectedTask.selectedTask
-  );
   const done = useSelector((state) => state.tasks.done);
   const handleBoxClick = () => {
     setFinished(true);
@@ -22,7 +19,7 @@ const DoneItem = ({ doneItem, setFinished }) => {
       <DoneCheckbox onClick={handleBoxClick}>
         <Check color="white" size="20px" />
       </DoneCheckbox>
-      <CrossedOutTask>{done.title}</CrossedOutTask>
+      <CrossedOutTask>{doneItem.title}</CrossedOutTask>
     </DoneItemContainer>
   );
 };

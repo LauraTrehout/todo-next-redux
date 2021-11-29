@@ -13,7 +13,6 @@ export const UserSelectorDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  position: relative;
 `;
 
 export const SelectorFlex = styled.div`
@@ -28,4 +27,13 @@ export const DateSelectorDiv = styled(UserSelectorDiv)``;
 export const SelectUser = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  width: 300px;
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  transform: translateY(120px);
+  margin-left: 20px;
+  padding: 1.5rem; ;
 `;

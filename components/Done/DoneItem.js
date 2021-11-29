@@ -4,25 +4,25 @@ import { DoneCheckbox } from "../../styles/Checkbox.styled";
 import { DoneItemContainer } from "../../styles/Container.styled";
 import { CrossedOutTask } from "../../styles/Title.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { newDone } from "../../redux/actions/done.actions";
+import { newSelectedTask } from "../../redux/actions/selectedTask.actions";
 
-const DoneItem = ({ setFinished }) => {
+const DoneItem = ({ doneItem, setFinished }) => {
   const dispatch = useDispatch();
   const selectedTask = useSelector(
-    (state) => state.selectedTaskReducer.selectedTask
+    (state) => state.selectedTask.selectedTask
   );
-  const done = useSelector((state) => state.doneReducer.done);
+  const done = useSelector((state) => state.tasks.done);
   const handleBoxClick = () => {
-    dispatch(newDone(selectedTask));
     setFinished(true);
+    dispatch(newSelectedTask(doneItem))
   };
-  console.log(done);
+
   return (
     <DoneItemContainer>
       <DoneCheckbox onClick={handleBoxClick}>
         <Check color="white" size="20px" />
       </DoneCheckbox>
-      <CrossedOutTask>{done ? done[0].title : null}</CrossedOutTask>
+      <CrossedOutTask>{done.title}</CrossedOutTask>
     </DoneItemContainer>
   );
 };

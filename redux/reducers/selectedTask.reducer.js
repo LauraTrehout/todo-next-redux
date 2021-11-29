@@ -4,7 +4,7 @@ const initialState = {
   selectedTask: ''
 };
 
-function selectedTaskReducer(state = initialState, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case typesSelectedTask.ADD:
       let newSelectedTask = [action.payload];
@@ -16,4 +16,4 @@ function selectedTaskReducer(state = initialState, action) {
   }
 }
 
-export default selectedTaskReducer;
+export default reducer;

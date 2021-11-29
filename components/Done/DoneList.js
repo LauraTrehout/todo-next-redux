@@ -1,7 +1,7 @@
 import { DoneListContainer } from "../../styles/Container.styled";
 import DoneItem from "./DoneItem";
 import { useDispatch, useSelector } from 'react-redux'
-import { newDone } from '../../redux/actions/done.actions'
+import { newDone } from '../../redux/actions/tasks.actions'
 
 
 const DoneList = ({
@@ -12,7 +12,7 @@ const DoneList = ({
   finished,
   setFinished,
 }) => {
-const done = useSelector(state => state.doneReducer.done)
+const done = useSelector(state => state.tasks.done)
 
   return (
     <DoneListContainer>

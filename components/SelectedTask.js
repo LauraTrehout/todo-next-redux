@@ -13,33 +13,34 @@ import { SelectedHeader } from "../styles/Header.styled";
 import { TextArea } from "../styles/Input.styled";
 import Selectors from "./Selectors/Selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { newDone } from "../redux/actions/done.actions";
-import { deleteDone } from "../redux/actions/done.actions";
-import { deleteTodo } from "../redux/actions/todos.actions";
-import { newTodo } from "../redux/actions/todos.actions";
+import { newDone } from "../redux/actions/tasks.actions";
+import { deleteDone } from "../redux/actions/tasks.actions";
+import { deleteTodo } from "../redux/actions/tasks.actions";
+import { newTodo } from "../redux/actions/tasks.actions";
 
 function SelectedTask({ finished, setFinished }) {
   const dispatch = useDispatch();
   const selectedTask = useSelector(
-    (state) => state.selectedTaskReducer.selectedTask
+    (state) => state.selectedTask.selectedTask
   );
-  const done = useSelector((state) => state.doneReducer.done);
-  const todos = useSelector((state) => state.todosReducer.todos);
+  
   const toggleTask = () => {
     setFinished(!finished);
     if (!finished) {
       dispatch(newDone(selectedTask[0]));
       dispatch(
-        deleteTodo(todos.filter((elem) => elem.id !== selectedTask[0].id))
-      );
+        deleteTodo(selectedTask[0].id))
+      
     }
     if (finished) {
       dispatch(
-        deleteDone(done.filter((elem) => elem.id !== selectedTask[0].id)),
-        newTodo(...todos, selectedTask)
+        deleteDone(selectedTask[0].id),
+        dispatch(newTodo(selectedTask[0]))
       );
     }
   };
+
+  console.log(selectedTask);
   return (
     <SelectedTaskContainer>
       <SelectedHeader>

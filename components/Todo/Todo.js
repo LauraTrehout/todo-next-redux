@@ -3,7 +3,7 @@ import { AllTasksTitle } from "../../styles/Title.styled";
 import { Input } from "../../styles/Input.styled";
 import TodoList from "./TodoList";
 import { useSelector, useDispatch } from "react-redux";
-import { newTodo } from "../../redux/actions/todos.actions";
+import { newTodo } from "../../redux/actions/tasks.actions";
 
 function Todo({
   input,
@@ -20,7 +20,7 @@ function Todo({
   setFinished,
 }) {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todosReducer.todos);
+  const todos = useSelector((state) => state.tasks.todos);
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };

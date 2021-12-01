@@ -1,24 +1,20 @@
+import User from "../User";
+
 import { AddUser } from "../../styles/Button.styled";
 import {
   SelectorFlex,
   SelectUser,
   UserSelectorDiv,
 } from "../../styles/Selector.styled";
-import User from "../User";
 
-const UserSelector = ({
-  showUsers,
-  setShowUsers,
-  toggleUserClick,
-  users,
-}) => {
+const UserSelector = ({ showUsers, setShowUsers, toggleUserClick, users }) => {
   return (
     <>
-    <UserSelectorDiv>
-      <SelectorFlex>
-        <AddUser onClick={toggleUserClick}>+</AddUser>
-        <p>ATTRIBUER À</p>
-      </SelectorFlex>
+      <UserSelectorDiv>
+        <SelectorFlex>
+          <AddUser onClick={toggleUserClick}>+</AddUser>
+          <p>ATTRIBUER À</p>
+        </SelectorFlex>
       </UserSelectorDiv>
       {showUsers && (
         <SelectUser>
@@ -28,10 +24,11 @@ const UserSelector = ({
               user={user}
               showUsers={showUsers}
               setShowUsers={setShowUsers}
-            />))}
+            />
+          ))}
         </SelectUser>
-          )}
-          </>
+      )}
+    </>
   );
 };
 

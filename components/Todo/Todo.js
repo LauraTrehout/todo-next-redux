@@ -1,11 +1,12 @@
+import TodoList from "./TodoList";
+
 import { TodoContainer } from "../../styles/Container.styled";
 import { AllTasksTitle } from "../../styles/Title.styled";
 import { Input } from "../../styles/Input.styled";
-import TodoList from "./TodoList";
 import { useSelector, useDispatch } from "react-redux";
 import { newTodo } from "../../redux/actions/tasks.actions";
 
-function Todo({ input, setInput, finished, setFinished , taskDate, setTaskDate}) {
+function Todo({ input, setInput, finished, setFinished }) {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.tasks.todos);
   const handleInputChange = (e) => {
@@ -36,13 +37,7 @@ function Todo({ input, setInput, finished, setFinished , taskDate, setTaskDate})
         onChange={handleInputChange}
         onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
       />
-      <TodoList
-        todos={todos}
-        finished={finished}
-        setFinished={setFinished}
-        taskDate={taskDate}
-        setTaskDate={setTaskDate}
-      />
+      <TodoList todos={todos} finished={finished} setFinished={setFinished} />
     </TodoContainer>
   );
 }

@@ -1,5 +1,10 @@
-import { TimeFive } from "@styled-icons/boxicons-regular";
+import { useDispatch, useSelector } from "react-redux";
+import { setDate } from "../../redux/actions/tasks.actions";
+
 import DatePicker from "react-datepicker";
+import fr from "date-fns/locale/fr";
+
+import { TimeFive } from "@styled-icons/boxicons-regular";
 import "react-datepicker/dist/react-datepicker.css";
 import { AddDate } from "../../styles/Button.styled";
 import {
@@ -7,25 +12,21 @@ import {
   DateSelectorDiv,
   SelectorFlex,
 } from "../../styles/Selector.styled";
-import { setDate } from '../../redux/actions/tasks.actions'
-import fr from "date-fns/locale/fr";
-import { useDispatch, useSelector } from "react-redux";
 
-const DateSelector = ({ toggleTaskDate, showDate, setShowDate, taskDate, setTaskDate}) => {
+const DateSelector = ({ toggleTaskDate, showDate, setShowDate }) => {
   const dispatch = useDispatch();
-  const selectedTask = useSelector(state => state.selectedTask.selectedTask)
+  const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
 
-  const handleDateChange = (date) => {
-    setTaskDate(date);
+  const handleDateSelect = (date) => {
     dispatch(
       setDate({
-        task_date: taskDate,
-        task_id: selectedTask.id
+        task_date: date,
+        task_id: selectedTask.id,
       })
     );
-    setShowDate(false)
+    setShowDate(false);
   };
-console.log(taskDate);
+
   return (
     <>
       <DateSelectorDiv>
@@ -39,8 +40,7 @@ console.log(taskDate);
       {showDate && (
         <DateContainer>
           <DatePicker
-            selected={taskDate}
-            onChange={handleDateChange}
+            onSelect={handleDateSelect}
             dateFormat="d MMMM yyyy"
             locale={fr}
             minDate={new Date()}

@@ -1,7 +1,8 @@
-import { TodoListContainer } from "../../styles/Container.styled";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos, finished, setFinished, taskDate, setTaskDate }) => {
+import { TodoListContainer } from "../../styles/Container.styled";
+
+const TodoList = ({ todos, finished, setFinished }) => {
   return (
     <TodoListContainer>
       {todos.map((todo) => (
@@ -10,8 +11,6 @@ const TodoList = ({ todos, finished, setFinished, taskDate, setTaskDate }) => {
           todo={todo}
           finished={finished}
           setFinished={setFinished}
-          taskDate={taskDate}
-          setTaskDate={setTaskDate}
         />
       ))}
     </TodoListContainer>

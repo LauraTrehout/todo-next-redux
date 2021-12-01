@@ -1,3 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  newSelectedTask,
+  resetSelectedTask,
+} from "../../redux/actions/selectedTask.actions";
+import { newTodo, deleteDone } from "../../redux/actions/tasks.actions";
+
+import fr from "date-fns/locale/fr";
+import format from "date-fns/format";
+
 import { Check } from "@styled-icons/bootstrap/Check";
 import { DoneCheckbox } from "../../styles/Checkbox.styled";
 import {
@@ -10,12 +20,6 @@ import {
   CrossedOutTask,
   CrossedOutUser,
 } from "../../styles/Title.styled";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  newSelectedTask,
-  resetSelectedTask,
-} from "../../redux/actions/selectedTask.actions";
-import { newTodo, deleteDone } from "../../redux/actions/tasks.actions";
 
 const DoneItem = ({ doneItem, finished, setFinished }) => {
   const dispatch = useDispatch();

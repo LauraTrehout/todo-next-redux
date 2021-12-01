@@ -1,3 +1,9 @@
+import fr from "date-fns/locale/fr";
+import format from "date-fns/format";
+
+import { useSelector, useDispatch } from "react-redux";
+import { newDone, deleteTodo } from "../../redux/actions/tasks.actions";
+
 import { Check } from "@styled-icons/bootstrap/Check";
 import { TodoCheckbox } from "../../styles/Checkbox.styled";
 import {
@@ -6,15 +12,10 @@ import {
   FlexContainer,
 } from "../../styles/Container.styled";
 import { TaskDate, TaskTitle, TaskUser } from "../../styles/Title.styled";
-import { useDispatch } from "react-redux";
 import {
   newSelectedTask,
   resetSelectedTask,
 } from "../../redux/actions/selectedTask.actions";
-import fr from "date-fns/locale/fr";
-import format from "date-fns/format";
-import { useSelector } from "react-redux";
-import { newDone, deleteTodo } from "../../redux/actions/tasks.actions";
 
 const TodoItem = ({ todo, setFinished }) => {
   const dispatch = useDispatch();

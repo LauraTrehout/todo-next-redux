@@ -1,21 +1,22 @@
-import { DoneContainer } from "../../styles/Container.styled";
-import { DoneTaskTitle } from "../../styles/Title.styled";
-import DoneList from "./DoneList";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
-function Done({
-  finished,
-  setFinished,
-}) {
-  const done = useSelector(state => state.tasks.done)
+import DoneList from "./DoneList";
+
+import {
+  DoneContainer,
+  DoneTaskTitleContainer,
+} from "../../styles/Container.styled";
+
+function Done({ finished, setFinished }) {
+  const done = useSelector((state) => state.tasks.done);
   return (
     <>
-      <DoneTaskTitle>Tâches terminées {done.length}</DoneTaskTitle>
+      <DoneTaskTitleContainer>
+        <p>Tâches terminées</p>
+        {done.length}
+      </DoneTaskTitleContainer>
       <DoneContainer>
-        <DoneList
-          finished={finished}
-          setFinished={setFinished}
-        />
+        <DoneList finished={finished} setFinished={setFinished} />
       </DoneContainer>
     </>
   );

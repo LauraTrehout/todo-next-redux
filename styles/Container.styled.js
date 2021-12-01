@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.div`
+  display: flex;
+`;
+
 export const FlexContainer = styled.div`
   display: flex;
   align-items: center;
@@ -24,7 +28,14 @@ export const TodoContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+export const DoneTaskTitleContainer = styled.div`
+  color: ${({ theme }) => theme.colors.main};
+  background-color: #e8ded1;
+  margin-left: 0;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+`;
 export const DoneListContainer = styled(TodoContainer)`
   background-color: #fff;
 `;
@@ -36,7 +47,7 @@ export const TodoListContainer = styled.div`
 `;
 
 export const TodoItemContainer = styled(FlexContainer)`
-justify-content: space-between;
+  justify-content: space-between;
   padding: 0.5rem;
   border-left: solid 5px #fff;
   &:hover {

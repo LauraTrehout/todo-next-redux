@@ -1,3 +1,7 @@
+import { useSelector } from "react-redux";
+
+import Selectors from "./Selectors/Selectors";
+
 import { Check } from "@styled-icons/bootstrap/Check";
 import { PencilSquare } from "@styled-icons/bootstrap/PencilSquare";
 import { Todo } from "@styled-icons/remix-fill/Todo";
@@ -11,15 +15,8 @@ import { CheckedButton, CommentButton } from "../styles/Button.styled";
 import { Description, SelectedTaskTitle } from "../styles/Title.styled";
 import { SelectedHeader } from "../styles/Header.styled";
 import { TextArea } from "../styles/Input.styled";
-import Selectors from "./Selectors/Selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { newDone } from "../redux/actions/tasks.actions";
-import { deleteDone } from "../redux/actions/tasks.actions";
-import { deleteTodo } from "../redux/actions/tasks.actions";
-import { newTodo } from "../redux/actions/tasks.actions";
 
-function SelectedTask({ finished, setFinished, taskDate, setTaskDate }) {
-  const dispatch = useDispatch();
+function SelectedTask({ finished }) {
   const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
 
   return (
@@ -38,7 +35,7 @@ function SelectedTask({ finished, setFinished, taskDate, setTaskDate }) {
       </SelectedHeader>
       {selectedTask && (
         <>
-          <Selectors taskDate={taskDate} setTaskDate={setTaskDate} />
+          <Selectors />
           <TaskDescription>
             <FlexContainer>
               <PencilSquare size="25" />

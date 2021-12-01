@@ -5,7 +5,7 @@ import { setUser } from "../redux/actions/tasks.actions";
 import { UserEmail } from "../styles/Title.styled";
 import { FlexContainer, UserDetails } from "../styles/Container.styled";
 
-const User = ({ user }) => {
+const User = ({ user, setShowUsers }) => {
   const dispatch = useDispatch();
   const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
   const handleUserClick = () => {
@@ -15,6 +15,7 @@ const User = ({ user }) => {
         id_task: selectedTask.id,
       })
     );
+    setShowUsers(false)
   };
 
   return (

@@ -36,7 +36,8 @@ export const TodoListContainer = styled.div`
 `;
 
 export const TodoItemContainer = styled(FlexContainer)`
-  padding: 1rem;
+justify-content: space-between;
+  padding: 0.5rem;
   border-left: solid 5px #fff;
   &:hover {
     background-color: ${({ theme }) => theme.colors.bg};
@@ -64,7 +65,17 @@ export const CommentSection = styled(TaskDescription)`
   padding: 0;
 `;
 
-
 export const UserDetails = styled(TodoListContainer)`
-padding-left: 10px;
-`
+  padding-left: 10px;
+`;
+
+export const TaskDetails = styled(TodoItemContainer)`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 0;
+  border-left: none;
+  &:hover {
+    border-left: none;
+  }
+`;

@@ -33,12 +33,12 @@ export const SelectUser = styled.div`
   font-weight: 500;
   position: absolute;
   top: 0;
-  transform: translateY(120px);
+  transform: translateY(130px);
   margin-left: 20px;
   padding: 1.5rem; ;
 `;
 
 export const DateContainer = styled(SelectUser)`
 top: 0;
-transform: translate(220px,120px);
+transform: translate(220px,130px);
 `

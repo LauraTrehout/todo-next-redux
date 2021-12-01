@@ -26,7 +26,8 @@ export const SelectedTaskTitle = styled(AllTasksTitle)`
 `;
 
 export const TaskTitle = styled.h3`
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   padding: 0.5rem;
 `;
 
@@ -43,3 +44,12 @@ export const Description = styled(TaskTitle)`
 export const UserEmail = styled.p`
 color: ${({ theme }) => theme.colors.greyTxt};
 `
+
+export const TaskDate = styled(UserEmail)``
+
+export const TaskUser = styled(SelectedTaskTitle)`
+background-color: transparent;
+font-weight: 400;
+padding-left: 0.5rem;
+`
+

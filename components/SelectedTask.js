@@ -22,17 +22,6 @@ function SelectedTask({ finished, setFinished, taskDate, setTaskDate }) {
   const dispatch = useDispatch();
   const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
 
-  const toggleTask = () => {
-    setFinished(!finished);
-    if (!finished) {
-      dispatch(newDone(selectedTask));
-      dispatch(deleteTodo(selectedTask.id));
-    }
-    if (finished) {
-      dispatch(deleteDone(selectedTask.id), dispatch(newTodo(selectedTask)));
-    }
-  };
-
   return (
     <SelectedTaskContainer>
       <SelectedHeader>
@@ -40,7 +29,7 @@ function SelectedTask({ finished, setFinished, taskDate, setTaskDate }) {
           {selectedTask ? selectedTask.title : null}
         </SelectedTaskTitle>
         {selectedTask && (
-          <CheckedButton onClick={toggleTask}>
+          <CheckedButton>
             {!finished && <Check size="25" />}
             {finished && <Todo size="25" />}
             {!finished ? "MARQUÉ COMME TERMINÉ" : "A RÉALISER"}

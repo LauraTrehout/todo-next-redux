@@ -42,7 +42,6 @@ justify-content: space-between;
   &:hover {
     background-color: ${({ theme }) => theme.colors.bg};
     border-left: solid 5px ${({ theme }) => theme.colors.main};
-    cursor: pointer;
   }
 `;
 export const DoneItemContainer = styled(TodoItemContainer)``;

@@ -1,27 +1,35 @@
 import { Check } from "@styled-icons/bootstrap/Check";
 import { TodoCheckbox } from "../../styles/Checkbox.styled";
 import {
-  TodoItemContainer, TaskDetails, FlexContainer
+  TodoItemContainer,
+  TaskDetails,
+  FlexContainer,
 } from "../../styles/Container.styled";
 import { TaskDate, TaskTitle, TaskUser } from "../../styles/Title.styled";
 import { useDispatch } from "react-redux";
-import { newSelectedTask } from "../../redux/actions/selectedTask.actions";
+import {
+  newSelectedTask,
+  resetSelectedTask,
+} from "../../redux/actions/selectedTask.actions";
 import fr from "date-fns/locale/fr";
 import format from "date-fns/format";
-import { useSelector } from 'react-redux'
-import { newDone, deleteTodo} from '../../redux/actions/tasks.actions'
+import { useSelector } from "react-redux";
+import { newDone, deleteTodo } from "../../redux/actions/tasks.actions";
 
-const TodoItem = ({ todo, finished, setFinished, taskDate }) => {
+const TodoItem = ({ todo, setFinished }) => {
   const dispatch = useDispatch();
-const selectedTask = useSelector(state => state.selectedTask.selectedTask)
+  const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
   const handleTaskClick = () => {
     dispatch(newSelectedTask(todo));
-  }
+  };
 
   const toggleTask = () => {
-    setFinished(!finished);
+    if (selectedTask !== "") {
       dispatch(newDone(selectedTask));
       dispatch(deleteTodo(selectedTask.id));
+      setFinished(true);
+      dispatch(resetSelectedTask());
+    }
   };
 
   const getDate = () => {
@@ -29,26 +37,25 @@ const selectedTask = useSelector(state => state.selectedTask.selectedTask)
       todo.date.toString().slice(0, 10) === new Date().toString().slice(0, 10)
     ) {
       return "Aujourd'hui";
-    } else if (todo.date === '') {
-      return ''
+    } else if (todo.date === "") {
+      return "";
     } else {
       return format(todo.date, "dd MMMM yyyy", { locale: fr });
     }
   };
 
-  console.log(taskDate);
   return (
-    <TodoItemContainer onClick={handleTaskClick}>
+    <TodoItemContainer>
       <FlexContainer>
-      <TodoCheckbox onClick={toggleTask}>
-        <Check color="white" />
-      </TodoCheckbox>
-      <TaskDetails>
-        <TaskTitle>{todo.title}</TaskTitle>
-        <TaskUser>{todo.taskUser}</TaskUser>
-      </TaskDetails>
+        <TodoCheckbox onClick={toggleTask}>
+          <Check color="white" />
+        </TodoCheckbox>
+        <TaskDetails>
+          <TaskTitle onClick={handleTaskClick}>{todo.title}</TaskTitle>
+          <TaskUser>{todo.taskUser}</TaskUser>
+        </TaskDetails>
       </FlexContainer>
-        <TaskDate>{getDate()}</TaskDate>
+      <TaskDate>{getDate()}</TaskDate>
     </TodoItemContainer>
   );
 };

@@ -1,5 +1,4 @@
 import { Check } from "@styled-icons/bootstrap/Check";
-
 import { DoneCheckbox } from "../../styles/Checkbox.styled";
 import {
   DoneItemContainer,
@@ -7,42 +6,61 @@ import {
   TaskDetails,
 } from "../../styles/Container.styled";
 import {
+  CrossedOutDate,
   CrossedOutTask,
   CrossedOutUser,
-  TaskDate,
-  TaskUser,
 } from "../../styles/Title.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { newSelectedTask } from "../../redux/actions/selectedTask.actions";
-import { newTodo, deleteDone } from "../../redux/actions/tasks.actions"
+import {
+  newSelectedTask,
+  resetSelectedTask,
+} from "../../redux/actions/selectedTask.actions";
+import { newTodo, deleteDone } from "../../redux/actions/tasks.actions";
 
 const DoneItem = ({ doneItem, finished, setFinished }) => {
   const dispatch = useDispatch();
-  const done = useSelector((state) => state.tasks.done);
-  const selectedTask = useSelector(state => state.selectedTask.selectedTask)
+  const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
 
   const handleTaskClick = () => {
     dispatch(newSelectedTask(doneItem));
   };
 
   const toggleTask = () => {
-    setFinished(!finished);
-    dispatch(newTodo(selectedTask));
-    dispatch(deleteDone(selectedTask.id));
+    if (selectedTask !== "") {
+      dispatch(newTodo(selectedTask));
+      dispatch(deleteDone(selectedTask.id));
+      setFinished(!finished);
+      dispatch(resetSelectedTask());
+    }
+  };
+
+  const getDate = () => {
+    if (
+      doneItem.date.toString().slice(0, 10) ===
+      new Date().toString().slice(0, 10)
+    ) {
+      return "Aujourd'hui";
+    } else if (doneItem.date === "") {
+      return "";
+    } else {
+      return format(doneItem.date, "dd MMMM yyyy", { locale: fr });
+    }
   };
 
   return (
-    <DoneItemContainer onClick={handleTaskClick}>
+    <DoneItemContainer>
       <FlexContainer>
         <DoneCheckbox onClick={toggleTask}>
           <Check color="white" size="20px" />
         </DoneCheckbox>
         <TaskDetails>
-          <CrossedOutTask>{doneItem.title}</CrossedOutTask>
+          <CrossedOutTask onClick={handleTaskClick}>
+            {doneItem.title}
+          </CrossedOutTask>
           <CrossedOutUser>{doneItem.taskUser}</CrossedOutUser>
         </TaskDetails>
       </FlexContainer>
-      <TaskDate></TaskDate>
+      <CrossedOutDate>{getDate()}</CrossedOutDate>
     </DoneItemContainer>
   );
 };

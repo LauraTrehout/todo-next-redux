@@ -1,11 +1,17 @@
 export const types = {
     ADD: "selectedTask/ADD",
-    ADD_USER: "selectedTask/ADD_USER"
+    RESET: "selectedTask/RESET"
   };
   
   export function newSelectedTask(payload) {
     return {
       type: types.ADD,
+      payload,
+    };
+  }
+  export function resetSelectedTask(payload) {
+    return {
+      type: types.RESET,
       payload,
     };
   }

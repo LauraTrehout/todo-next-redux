@@ -48,6 +48,20 @@ function reducer(state = initialState, action) {
         ...state,
         todos: _todos,
       };
+    case typesTasks.SET_DATE:
+      const { task_date, task_id } = action.payload;
+      let _todosDate = [];
+      state.todos.map((task) => {
+        if (task.id === task_id) {
+          (task.date = task_date), _todosDate.push(task);
+        } else {
+          _todosDate.push(task);
+        }
+      });
+      return {
+        ...state,
+        todos: _todosDate,
+      };
     default:
       return state;
   }

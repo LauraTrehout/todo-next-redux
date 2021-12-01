@@ -5,7 +5,7 @@ import data from "../../users.js";
 import UserSelector from "./UserSelector";
 import DateSelector from "./DateSelector";
 
-const Selectors = ({
+const Selectors = ({taskDate, setTaskDate
 }) => {
   const [users, setUsers] = useState(data);
   const [showUsers, setShowUsers] = useState(false);
@@ -31,6 +31,8 @@ const Selectors = ({
         toggleTaskDate={toggleTaskDate}
         showDate={showDate}
         setShowDate={setShowDate}
+        taskDate={taskDate}
+        setTaskDate={setTaskDate}
       />
     </FlexContainer>
   );

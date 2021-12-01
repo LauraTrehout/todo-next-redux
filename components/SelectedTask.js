@@ -18,25 +18,18 @@ import { deleteDone } from "../redux/actions/tasks.actions";
 import { deleteTodo } from "../redux/actions/tasks.actions";
 import { newTodo } from "../redux/actions/tasks.actions";
 
-function SelectedTask({ finished, setFinished }) {
+function SelectedTask({ finished, setFinished, taskDate, setTaskDate }) {
   const dispatch = useDispatch();
-  const selectedTask = useSelector(
-    (state) => state.selectedTask.selectedTask
-  );
-  
+  const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
+
   const toggleTask = () => {
     setFinished(!finished);
     if (!finished) {
       dispatch(newDone(selectedTask));
-      dispatch(
-        deleteTodo(selectedTask.id))
-      
+      dispatch(deleteTodo(selectedTask.id));
     }
     if (finished) {
-      dispatch(
-        deleteDone(selectedTask.id),
-        dispatch(newTodo(selectedTask))
-      );
+      dispatch(deleteDone(selectedTask.id), dispatch(newTodo(selectedTask)));
     }
   };
 
@@ -54,20 +47,21 @@ function SelectedTask({ finished, setFinished }) {
           </CheckedButton>
         )}
       </SelectedHeader>
-      {selectedTask &&
-      <>
-      <Selectors />
-      <TaskDescription>
-        <FlexContainer>
-          <PencilSquare size="25" />
-          <Description>Description</Description>
-        </FlexContainer>
-        <TextArea></TextArea>
-      </TaskDescription>
-      <CommentSection>
-        <CommentButton>COMMENTER</CommentButton>
-      </CommentSection>
-      </>}
+      {selectedTask && (
+        <>
+          <Selectors taskDate={taskDate} setTaskDate={setTaskDate} />
+          <TaskDescription>
+            <FlexContainer>
+              <PencilSquare size="25" />
+              <Description>Description</Description>
+            </FlexContainer>
+            <TextArea></TextArea>
+          </TaskDescription>
+          <CommentSection>
+            <CommentButton>COMMENTER</CommentButton>
+          </CommentSection>
+        </>
+      )}
     </SelectedTaskContainer>
   );
 }

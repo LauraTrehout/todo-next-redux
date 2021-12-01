@@ -25,6 +25,7 @@ const MainContainer = styled.div`
 export default function Home() {
   const [input, setInput] = useState("");
   const [finished, setFinished] = useState(false);
+  const [taskDate, setTaskDate] = useState(new Date());
 
   return (
     <div>
@@ -48,10 +49,14 @@ export default function Home() {
               setInput={setInput}
               finished={finished}
               setFinished={setFinished}
+              taskDate={taskDate}
+              setTaskDate={setTaskDate}
             />
             <SelectedTask
               finished={finished}
               setFinished={setFinished}
+              taskDate={taskDate}
+              setTaskDate={setTaskDate}
             />
           </MainContainer>
         </ThemeProvider>

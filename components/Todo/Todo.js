@@ -5,12 +5,7 @@ import TodoList from "./TodoList";
 import { useSelector, useDispatch } from "react-redux";
 import { newTodo } from "../../redux/actions/tasks.actions";
 
-function Todo({
-  input,
-  setInput,
-  finished,
-  setFinished,
-}) {
+function Todo({ input, setInput, finished, setFinished , taskDate, setTaskDate}) {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.tasks.todos);
   const handleInputChange = (e) => {
@@ -24,7 +19,7 @@ function Todo({
           title: input,
           id: Math.floor(Math.random() * 100),
           taskUser: "",
-          date:''
+          date: "",
         })
       );
       setInput("");
@@ -45,6 +40,8 @@ function Todo({
         todos={todos}
         finished={finished}
         setFinished={setFinished}
+        taskDate={taskDate}
+        setTaskDate={setTaskDate}
       />
     </TodoContainer>
   );

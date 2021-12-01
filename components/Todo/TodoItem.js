@@ -7,15 +7,23 @@ import { TaskDate, TaskTitle, TaskUser } from "../../styles/Title.styled";
 import { useDispatch } from "react-redux";
 import { newSelectedTask } from "../../redux/actions/selectedTask.actions";
 import fr from "date-fns/locale/fr";
-import { parseISO } from "date-fns";
 import format from "date-fns/format";
+import { useSelector } from 'react-redux'
+import { newDone, deleteTodo} from '../../redux/actions/tasks.actions'
 
-const TodoItem = ({ todo, setFinished, taskDate }) => {
+const TodoItem = ({ todo, finished, setFinished, taskDate }) => {
   const dispatch = useDispatch();
-  const handleBoxClick = () => {
+const selectedTask = useSelector(state => state.selectedTask.selectedTask)
+  const handleTaskClick = () => {
     dispatch(newSelectedTask(todo));
-    setFinished(false);
+  }
+
+  const toggleTask = () => {
+    setFinished(!finished);
+      dispatch(newDone(selectedTask));
+      dispatch(deleteTodo(selectedTask.id));
   };
+
   const getDate = () => {
     if (
       todo.date.toString().slice(0, 10) === new Date().toString().slice(0, 10)
@@ -30,9 +38,9 @@ const TodoItem = ({ todo, setFinished, taskDate }) => {
 
   console.log(taskDate);
   return (
-    <TodoItemContainer>
+    <TodoItemContainer onClick={handleTaskClick}>
       <FlexContainer>
-      <TodoCheckbox onClick={handleBoxClick}>
+      <TodoCheckbox onClick={toggleTask}>
         <Check color="white" />
       </TodoCheckbox>
       <TaskDetails>

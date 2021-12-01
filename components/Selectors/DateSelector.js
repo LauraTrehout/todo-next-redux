@@ -11,7 +11,7 @@ import { setDate } from '../../redux/actions/tasks.actions'
 import fr from "date-fns/locale/fr";
 import { useDispatch, useSelector } from "react-redux";
 
-const DateSelector = ({ toggleTaskDate, showDate, taskDate, setTaskDate}) => {
+const DateSelector = ({ toggleTaskDate, showDate, setShowDate, taskDate, setTaskDate}) => {
   const dispatch = useDispatch();
   const selectedTask = useSelector(state => state.selectedTask.selectedTask)
 
@@ -23,6 +23,7 @@ const DateSelector = ({ toggleTaskDate, showDate, taskDate, setTaskDate}) => {
         task_id: selectedTask.id
       })
     );
+    setShowDate(false)
   };
 console.log(taskDate);
   return (

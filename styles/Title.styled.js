@@ -31,11 +31,20 @@ export const TaskTitle = styled.h3`
   padding: 0.5rem;
 `;
 
-export const CrossedOutTask = styled.p`
+export const TaskUser = styled(SelectedTaskTitle)`
+background-color: transparent;
+font-weight: 400;
+padding-left: 0.5rem;
+`
+
+export const CrossedOutTask = styled(TaskTitle)`
   text-decoration: line-through;
-  padding-left: 10px;
-  font-size: 1rem;
 `;
+
+export const CrossedOutUser = styled(TaskUser)`
+text-decoration: line-through;
+`
+
 
 export const Description = styled(TaskTitle)`
   padding-left: 15px;
@@ -47,9 +56,5 @@ color: ${({ theme }) => theme.colors.greyTxt};
 
 export const TaskDate = styled(UserEmail)``
 
-export const TaskUser = styled(SelectedTaskTitle)`
-background-color: transparent;
-font-weight: 400;
-padding-left: 0.5rem;
-`
+
 

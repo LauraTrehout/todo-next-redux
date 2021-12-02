@@ -3,6 +3,7 @@ import { setDate } from "../../redux/actions/tasks.actions";
 
 import DatePicker from "react-datepicker";
 import fr from "date-fns/locale/fr";
+import format from "date-fns/format";
 
 import { TimeFive } from "@styled-icons/boxicons-regular";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,6 +28,14 @@ const DateSelector = ({ toggleTaskDate, showDate, setShowDate }) => {
     setShowDate(false);
   };
 
+  const getTaskDate = () => {
+    if (selectedTask.date !== "") {
+      return format(selectedTask.date, "dd/MM/yy", { locale: fr });
+    } else {
+      return "ÉCHÉANCE";
+    }
+  };
+
   return (
     <>
       <DateSelectorDiv>
@@ -34,7 +43,7 @@ const DateSelector = ({ toggleTaskDate, showDate, setShowDate }) => {
           <AddDate onClick={toggleTaskDate}>
             <TimeFive color="grey" size="20" />
           </AddDate>
-          ÉCHÉANCE
+          {getTaskDate()}
         </SelectorFlex>
       </DateSelectorDiv>
       {showDate && (

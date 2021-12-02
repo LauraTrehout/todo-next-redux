@@ -27,6 +27,7 @@ function Todo({ input, setInput, finished, setFinished }) {
     }
   };
 
+
   return (
     <TodoContainer>
       <AllTasksTitle>Toutes les tâches</AllTasksTitle>

@@ -4,6 +4,8 @@ import format from "date-fns/format";
 import { useSelector, useDispatch } from "react-redux";
 import { newDone, deleteTodo } from "../../redux/actions/tasks.actions";
 
+import data from "../../users.js";
+
 import { Check } from "@styled-icons/bootstrap/Check";
 import { TodoCheckbox } from "../../styles/Checkbox.styled";
 import {
@@ -16,8 +18,10 @@ import {
   newSelectedTask,
   resetSelectedTask,
 } from "../../redux/actions/selectedTask.actions";
+import { useState } from "react";
 
 const TodoItem = ({ todo, setFinished }) => {
+  const [users, setUsers] = useState(data);
   const dispatch = useDispatch();
   const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
   const handleTaskClick = () => {
@@ -45,6 +49,18 @@ const TodoItem = ({ todo, setFinished }) => {
     }
   };
 
+  const getUser = () => {
+    if (todo.taskUser !== "") {
+      return users.data.map((user) => {
+        if (todo.taskUser === user.id) {
+          return user.name;
+        }
+      });
+    } else {
+      return "";
+    }
+  };
+
   return (
     <TodoItemContainer>
       <FlexContainer>
@@ -53,7 +69,7 @@ const TodoItem = ({ todo, setFinished }) => {
         </TodoCheckbox>
         <TaskDetails>
           <TaskTitle onClick={handleTaskClick}>{todo.title}</TaskTitle>
-          <TaskUser>{todo.taskUser}</TaskUser>
+          <TaskUser>{getUser()}</TaskUser>
         </TaskDetails>
       </FlexContainer>
       <TaskDate>{getDate()}</TaskDate>

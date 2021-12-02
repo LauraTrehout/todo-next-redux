@@ -22,3 +22,7 @@ export const TextArea = styled.textarea`
   margin-top: 10px;
   border: solid 1.5px ${({ theme }) => theme.colors.bg};
 `;
+
+export const DatepickerInput = styled.input`
+border: none
+`

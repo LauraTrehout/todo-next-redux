@@ -20,8 +20,12 @@ import {
   CrossedOutTask,
   CrossedOutUser,
 } from "../../styles/Title.styled";
+import data from "../../users.js";
+import { useState } from "react";
+
 
 const DoneItem = ({ doneItem, finished, setFinished }) => {
+  const [users, setUsers] = useState(data);
   const dispatch = useDispatch();
   const selectedTask = useSelector((state) => state.selectedTask.selectedTask);
 
@@ -51,6 +55,17 @@ const DoneItem = ({ doneItem, finished, setFinished }) => {
     }
   };
 
+  const getUser = () => {
+    if (doneItem.taskUser !== "") {
+      return users.data.map((user) => {
+        if (doneItem.taskUser === user.id) {
+          return user.name;
+        }
+      });
+    } else {
+      return "";
+    }
+  };
   return (
     <DoneItemContainer>
       <FlexContainer>
@@ -61,7 +76,7 @@ const DoneItem = ({ doneItem, finished, setFinished }) => {
           <CrossedOutTask onClick={handleTaskClick}>
             {doneItem.title}
           </CrossedOutTask>
-          <CrossedOutUser>{doneItem.taskUser}</CrossedOutUser>
+          <CrossedOutUser>{getUser()}</CrossedOutUser>
         </TaskDetails>
       </FlexContainer>
       <CrossedOutDate>{getDate()}</CrossedOutDate>

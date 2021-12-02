@@ -6,4 +6,5 @@ export const UserList = styled.li`
   display: flex;
   color: black;
   width:00px;
+
 `;

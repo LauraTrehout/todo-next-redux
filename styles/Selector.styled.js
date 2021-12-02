@@ -35,7 +35,8 @@ export const SelectUser = styled.div`
   top: 0;
   transform: translateY(130px);
   margin-left: 20px;
-  padding: 1.5rem; ;
+  padding: 0 1.5rem 0 1.5rem;
+  box-shadow: 1px 5px 7px grey;
 `;
 
 export const DateContainer = styled(SelectUser)`

@@ -13,6 +13,7 @@ import {
   DateSelectorDiv,
   SelectorFlex,
 } from "../../styles/Selector.styled";
+import { DatepickerInput } from "../../styles/Input.styled";
 
 const DateSelector = ({ toggleTaskDate, showDate, setShowDate }) => {
   const dispatch = useDispatch();
@@ -53,6 +54,8 @@ const DateSelector = ({ toggleTaskDate, showDate, setShowDate }) => {
             dateFormat="d MMMM yyyy"
             locale={fr}
             minDate={new Date()}
+            customInput={<DatepickerInput />}
+            
           />
         </DateContainer>
       )}

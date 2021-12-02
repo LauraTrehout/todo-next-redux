@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import User from "../User";
 
 import { AddUser } from "../../styles/Button.styled";
@@ -7,13 +9,23 @@ import {
   UserSelectorDiv,
 } from "../../styles/Selector.styled";
 
+
 const UserSelector = ({ showUsers, setShowUsers, toggleUserClick, users }) => {
+const selectedTask = useSelector(state => state.selectedTask.selectedTask)
+  const getUser = () => {
+if (selectedTask.taskUser !== '') {
+  return selectedTask.taskUser
+} else {
+  return "ATTRIBUER À"
+}
+  }
+
   return (
     <>
       <UserSelectorDiv>
         <SelectorFlex>
           <AddUser onClick={toggleUserClick}>+</AddUser>
-          <p>ATTRIBUER À</p>
+            <p>{getUser()}</p>
         </SelectorFlex>
       </UserSelectorDiv>
       {showUsers && (

@@ -14,7 +14,8 @@ function reducer(state = initialState, action) {
       };
     case typesSelectedTask.RESET:
       return {
-        initialState,
+        ...state,
+        ...initialState,
       };
     default:
       return state;

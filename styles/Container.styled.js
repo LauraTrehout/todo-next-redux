@@ -15,6 +15,10 @@ export const TasksContainer = styled.div`
   flex: 1;
   height: 100%;
   background-color: @fff;
+
+  @media screen and (max-width: 1230px) {
+  flex: 2;
+  }
 `;
 
 export const SelectedTaskContainer = styled.div`

@@ -17,6 +17,7 @@ export default function Home() {
         <title>todoist</title>
         <meta name="todo app" content="todo app" />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet" />
       </Head>
       <main>
         <MainContainer>

@@ -11,8 +11,8 @@ const theme = {
   },
 };
 
+// <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
 * { 
     box-sizing: border-box;
     margin: 0;
